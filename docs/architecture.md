@@ -7,7 +7,7 @@ richiesta è dell'agente; non c'è un parser deterministico del linguaggio natur
 
 1. **Agente e skill:** ricostruiscono circuito, fonti, stati e scelte; guidano i tool.
 2. **Integrazione:** possiede il suo formato nativo e le operazioni MCP. QET usa
-   XML editabile con definizioni incorporate. BTicino conserverà il proprio
+   XML editabile con definizioni incorporate. BTicino conserva il proprio
    progetto e gli export effettivamente ottenuti dall'applicazione.
 3. **Consegna comune:** dati della commessa, sorgenti, viste, verifiche e provenienza.
 4. **Documentor:** genera il PDF con il cartiglio aziendale; nessun backend
@@ -62,3 +62,20 @@ Il codice generico rimane in `src/gridline/`. Il server QET è in
 `src/gridline_bticino/` e il suo entrypoint MCP, una skill dedicata e test isolati.
 Dipendenze opzionali e strumenti browser restano specifici del backend.
 Le interfacce comuni cambiano con un test di regressione per entrambi i percorsi.
+
+## Percorsi attuali
+
+`gridline workflows` espone general, equipment e combined. Il workspace combinato
+contiene due sottoprogetti (`general/`, `quadri/`), due configurazioni MCP e un
+`coordination.json` aperto. `check` visita entrambi; `render` richiede entrambi
+completi e conserva due consegne. Non fonde i file nativi né deduce equivalenze.
+
+BTicino usa `source/bticino/` per contratto del caso, profili e originali locali;
+il workspace Documentor è `source/bticino/docs/`, indicato in
+`variables/backend.json`. I PDF finali sono in `out/`, verifiche in `qa/`.
+Il motore mantiene il contesto per chiamata e confina le risorse alla commessa.
+Il server STDIO non emette log del renderer su stdout e non gestisce login.
+
+Le risorse aziendali sono incluse con provenienza; PDF/cataloghi OEM sono
+forniti localmente e non redistribuiti nel repository. Le pagine tecniche
+restano PDF nativi con clipping e scala uniforme, mai SVG ricostruiti.

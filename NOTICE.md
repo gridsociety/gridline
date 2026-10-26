@@ -26,3 +26,16 @@ Questo primo rilascio non attribuisce una nuova licenza open source al codice
 aziendale. La visibilità pubblica del repository e le licenze dei materiali
 inclusi sono aspetti distinti. Per utilizzi esterni del codice o del marchio
 fare riferimento a Grid Society e alle licenze dei singoli contenuti.
+
+## Contributo BTicino
+
+Il motore deriva dal workflow locale Grid Society di acquisizione TiSystem e
+composizione Documentor, qualificato il 26/10/2026. Sono distribuiti codice,
+profili di riconoscimento, contratti JSON, logo e cartiglio aziendale;
+`src/gridline_bticino/resources/provenance.json` identifica le risorse.
+Non sono inclusi cataloghi ABB/BTicino/OEM, PDF tecnici nativi, progetti `.ti8`,
+timbri, firme o sessioni browser. L’utente acquisisce gli originali per la
+propria commessa e ne conserva i diritti e le condizioni d’uso applicabili.
+I profili di clipping non trasferiscono una licenza dei cataloghi sorgente.
+Il cartiglio A4 è l’adapter locale del workflow, non una promozione automatica
+nel repository condiviso degli standard Documentor.

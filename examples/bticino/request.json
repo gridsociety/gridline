@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "document": {
+    "company": "GS",
+    "project": "DEMO75",
+    "discipline": "E",
+    "family": "SLD",
+    "sequence": 1,
+    "revision": "P1",
+    "date": "2026-10-26",
+    "status": "DRAFT",
+    "designer": "Ufficio tecnico",
+    "approver": "",
+    "customer": "ESEMPIO SINTETICO",
+    "title": "BESS 7,5 MW / 15 MWh — MT e ausiliari",
+    "project_name": "DEMO75 · 3 × 2,5 MW / 5 MWh",
+    "scope": "Esempio indipendente preliminare. Linea MT dedicata e quattro partenze AUX. Carichi ausiliari e percorsi assunti; configurazione PCS/DC da confermare.",
+    "change_description": "Prima emissione del caso indipendente; calcolo BT nativo e verifica riuso pipeline."
+  },
+  "design": {
+    "voltage_V": 400,
+    "system": "TN-S, ipotesi",
+    "source_model": "TR AUX generico 250 kVA, uk 4%, Pcc 2700 W, Scc MT 500 MVA. TR-QAUX a sbarre, impedenza collegamento omessa.",
+    "actual_main": "Nuova proposta Q0 T724B250E; non apparecchio esistente",
+    "model_main": "BTicino T724B250E 250 A, Icu 25 kA; Ir 250 A; Isd 2500 A; tsd 0,01 s",
+    "circuits": [
+      {
+        "id": "BT01",
+        "label": "AUX BAT1",
+        "from": "QAUX",
+        "to": "BAT1",
+        "phases": "L1L2L3N",
+        "power": {
+          "value": 30,
+          "unit": "kW",
+          "status": "assumed",
+          "source": "DEMO75: ipotesi di test, assorbimenti e spunti OEM non disponibili"
+        },
+        "cos_phi": 0.9,
+        "length": {
+          "value": 35,
+          "unit": "m",
+          "status": "assumed",
+          "source": "DEMO75: percorsi di prova, non rilievo"
+        },
+        "phase_section_mm2": 16,
+        "neutral_section_mm2": 16,
+        "pe_section_mm2": 16,
+        "requested_breaker_A": 63,
+        "installation": "61 — tubo interrato, Cu EPR, 30 °C, un circuito separato, K utente 1"
+      },
+      {
+        "id": "BT02",
+        "label": "AUX BAT2",
+        "from": "QAUX",
+        "to": "BAT2",
+        "phases": "L1L2L3N",
+        "power": {
+          "value": 30,
+          "unit": "kW",
+          "status": "assumed",
+          "source": "DEMO75: ipotesi di test, assorbimenti e spunti OEM non disponibili"
+        },
+        "cos_phi": 0.9,
+        "length": {
+          "value": 45,
+          "unit": "m",
+          "status": "assumed",
+          "source": "DEMO75: percorsi di prova, non rilievo"
+        },
+        "phase_section_mm2": 16,
+        "neutral_section_mm2": 16,
+        "pe_section_mm2": 16,
+        "requested_breaker_A": 63,
+        "installation": "61 — tubo interrato, Cu EPR, 30 °C, un circuito separato, K utente 1"
+      },
+      {
+        "id": "BT03",
+        "label": "AUX BAT3",
+        "from": "QAUX",
+        "to": "BAT3",
+        "phases": "L1L2L3N",
+        "power": {
+          "value": 30,
+          "unit": "kW",
+          "status": "assumed",
+          "source": "DEMO75: ipotesi di test, assorbimenti e spunti OEM non disponibili"
+        },
+        "cos_phi": 0.9,
+        "length": {
+          "value": 55,
+          "unit": "m",
+          "status": "assumed",
+          "source": "DEMO75: percorsi di prova, non rilievo"
+        },
+        "phase_section_mm2": 16,
+        "neutral_section_mm2": 16,
+        "pe_section_mm2": 16,
+        "requested_breaker_A": 63,
+        "installation": "61 — tubo interrato, Cu EPR, 30 °C, un circuito separato, K utente 1"
+      },
+      {
+        "id": "BT04",
+        "label": "AUX STATION",
+        "from": "QAUX",
+        "to": "STATION",
+        "phases": "L1L2L3N",
+        "power": {
+          "value": 10,
+          "unit": "kW",
+          "status": "assumed",
+          "source": "DEMO75: ipotesi di test, assorbimenti e spunti OEM non disponibili"
+        },
+        "cos_phi": 0.9,
+        "length": {
+          "value": 25,
+          "unit": "m",
+          "status": "assumed",
+          "source": "DEMO75: percorsi di prova, non rilievo"
+        },
+        "phase_section_mm2": 10,
+        "neutral_section_mm2": 10,
+        "pe_section_mm2": 10,
+        "requested_breaker_A": 32,
+        "installation": "61 — tubo interrato, Cu EPR, 30 °C, un circuito separato, K utente 1"
+      }
+    ]
+  },
+  "notes": {
+    "assumptions": [
+      {
+        "id": "A01",
+        "parameter": "Impianto",
+        "value": "3 batterie × 2,5 MW / 5 MWh = 7,5 MW / 15 MWh.",
+        "basis": "Configurazione confermata dall’utente. Jinko SunTera JKE-5015K-2H-LAA come candidato; compatibilità DC da approvare."
+      },
+      {
+        "id": "A02",
+        "parameter": "AUX",
+        "value": "3 × 30 kW batterie + 10 kW station; cosφ 0,90; Ku/Kc 1.",
+        "basis": "Ipotesi di prova, non consumi OEM. Lunghezze 35/45/55/25 m; posa 61, 30 °C, tubi separati, nessun raggruppamento."
+      },
+      {
+        "id": "A03",
+        "parameter": "Rete BT",
+        "value": "TR dedicato 250 kVA, uk 4%, Pcc 2700 W, rete 500 MVA.",
+        "basis": "TN-S; arrivo a sbarre senza impedenza TR-QAUX. Collegamento fisico TR-quadro e carpenteria da dimensionare."
+      },
+      {
+        "id": "A04",
+        "parameter": "MT",
+        "value": "20 kV; limite di progetto 16 kA / 1 s; linea 40 m, 3 × 1 × 120 mm² Cu.",
+        "basis": "RG16H1R12 12/20 kV, trifoglio interrato: 20 °C, 0,8 m, terreno 1 K·m/W, senza raggruppamento. Ipotesi da rilievo/DSO."
+      }
+    ],
+    "findings": [
+      "BT: Icc QAUX 9,73 kA; generale 25 kA; partenze 16 kA. Iz report 66,96 A (batterie) e 51,15 A (station). Stampa: 72/55 A; differenza Iz conservata, K temperatura 0,93.",
+      "TiSystem: selettività TOTALE per le quattro partenze nel modello. Cadute totali 1,04/1,33/1,62/0,40%. Conferma con tabelle/curve OEM e condizioni effettive aperta.",
+      "MT, screening nelle ipotesi: 8 MVA → 230,94 A; Iz catalogo 360 A; caduta 0,018%; tenuta conduttore 17,16 kA per 1 s. Schermi, terra e protezioni da verificare.",
+      "FSK 7860: a 30 °C e 1500 Vdc, 7,856 MVA scarica / 7,460 MVA carica; a 50 °C 6,342 / 6,026 MVA. 7,5 MW bidirezionali non dimostrati."
+    ],
+    "open_checks": [
+      "OEM: consumi/spunti AUX, necessità/tipo RCD, ingressi esterni station e separazione dalla sua alimentazione interna; armoniche e neutro.",
+      "Tre batterie e due PCS: ripartizione rack/DC e curve P-Q vs Vdc/T da approvare. Non collegare due container interi a un PCS senza verifica.",
+      "DSO/progettista: rete e terra, posa reale, schermi MT, TA/relè/tarature, protezione TR AUX, IAC e tenuta insieme; nessuna prescrizione esecutiva."
+    ],
+    "source_summary": "Fonti: Ingeteam FSK HV C 09/2025; Jinko SunTera 5 MWh e manuale OEM; LTC RG16H1R12 Rev.004; cataloghi ABB/BTicino; export TiSystem P1 del 26/10/2026. File e hash nel pacchetto locale.",
+    "scope_summary": "BT: nuovo calcolo e disegno TiSystem. MT: simboli originali e collegamenti di coordinamento. Nessun segnale. PRELIMINARE: non utilizzabile come istruzione di installazione senza chiusura verifiche."
+  },
+  "agent_request": "Esempio didattico con quattro partenze AUX; tutte le ipotesi devono essere confermate per un progetto reale."
+}

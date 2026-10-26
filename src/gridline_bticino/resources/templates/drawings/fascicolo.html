@@ -1,0 +1,51 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8">
+<meta name="documentor-browser-header-footer" content="none">
+<title>{{ output_name|e }}</title>
+{% import "drawings/cartiglio.html" as gs %}
+{{ gs.page_setup(formato=format) }}
+<style>
+ .notes { font-size:3.2mm; line-height:1.4; }
+ .notes h1 { font-size:7mm; margin:12mm 0 5mm; }
+ .notes h2 { font-size:4mm; margin:4mm 0 2mm; }
+ .notes p { margin:2mm 0; }
+ .notes table { width:100%; border-collapse:collapse; margin:3mm 0; }
+ .notes td,.notes th { padding:1.5mm; border:.2mm solid #999; text-align:left; }
+ .notes th { background:#eee; }
+ .cover-code { font-size:4mm; font-weight:700; }
+ .status { border-left:1mm solid var(--gs-orange); padding:2mm 3mm; margin:5mm 0; background:#f8f8f8; }
+.compact {font-size:2.65mm;line-height:1.28;} .compact h2 {font-size:3.8mm;margin:2mm 0;} .compact td {padding:1.2mm;} .compact .small {font-size:2.5mm;color:#555;}
+</style></head><body>
+{% for p in pages %}
+{% call gs.sheet(cart,oggetto=p.title,foglio=p.number,total=total) %}
+{% if p.kind == 'native' %}
+{# Area volutamente vuota: riceve il viewport PDF tecnico originale.
+   Nessuna intestazione, avvertenza, hash o descrizione fuori dal cartiglio. #}
+{% elif p.kind == 'engineering' %}
+<div style="position:absolute;left:1mm;right:1mm;top:0;bottom:-.7mm;">{{ p.svg|safe }}</div>
+{% elif p.kind == 'cover' %}
+{% include "drawings/cover.html" %}
+{% elif p.kind == 'basis' %}
+<div class="notes compact">
+<h2>Basi di progetto e ipotesi</h2>
+<table><tbody>{% for a in notes.assumptions %}<tr><td><strong>{{ a.id|e }}</strong></td><td>{{ a.value|e }}<br><span class="small">{{ a.basis|e }}</span></td></tr>{% endfor %}</tbody></table>
+<h2>Riscontri e azioni prima dell’emissione esecutiva</h2>
+<table><tbody>{% for f in notes.findings %}<tr><td>R{{ loop.index }}</td><td>{{ f|e }}</td></tr>{% endfor %}
+{% for c in notes.open_checks %}<tr><td>V{{ loop.index }}</td><td>{{ c|e }}</td></tr>{% endfor %}</tbody></table>
+<h2>Fonti e stato</h2>
+<p>{{ notes.source_summary|e }}</p>
+<p>{{ notes.scope_summary|e }}</p>
+</div>
+{% elif p.kind == 'assumptions' %}
+<div class="notes"><h2>Basi e ipotesi dichiarate</h2>
+{% for a in notes.assumptions %}<p><strong>{{ a.id|e }} — {{ a.parameter|e }}.</strong> {{ a.value|e }}<br>{{ a.basis|e }}</p>{% endfor %}
+</div>
+{% elif p.kind == 'checks' %}
+<div class="notes"><h2>Risultati del modello e verifiche aperte</h2>
+{% for f in notes.findings %}<p>{{ f|e }}</p>{% endfor %}
+<h2>Prima dell’uso esecutivo</h2>
+{% for c in notes.open_checks %}<p>{{ loop.index }}. {{ c|e }}</p>{% endfor %}
+<h2>Integrità e limiti</h2>
+<p>Il codice identifica il rettangolo tecnico nativo tramite bordi e riferimenti testuali. L’inserimento nel cartiglio Grid Society conserva i flussi PDF originali e usa solo ritaglio vettoriale, scala uniforme e traslazione. Il controllo grafico non costituisce verifica o approvazione elettrica.</p>
+</div>
+{% endif %}
+{% endcall %}{% endfor %}</body></html>

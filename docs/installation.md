@@ -122,3 +122,16 @@ Errori di porte locali o avvio Chromium dipendono dai permessi dell'ambiente:
 autorizzare l'esecuzione locale quando consentito. Non modificare le protezioni
 globali della macchina. Su Linux può essere necessario installare le dipendenze
 di sistema richieste da Playwright; riportare il messaggio effettivo.
+
+## BTicino e modalità combinata
+
+Per il solo schema di quadro usare `gridline doctor --backend bticino`: QET
+non è un prerequisito. Browser e accesso personale TiSystem sono verifiche
+separate dal doctor. Il MCP non conserva credenziali o sessioni.
+
+Dopo `gridline new COMMESSA --workflow equipment`, `mcp-config COMMESSA`
+produce la voce `gridline-bticino` con `BTICINO_ALLOWED_ROOTS`. Per
+`--workflow combined` produce entrambe le voci, ciascuna limitata al proprio
+sottoprogetto. Leggere integrations/bticino/README.md per acquisire gli export
+e usare `gridline bticino-smoke COMMESSA` su un caso popolato. Non eseguire la
+demo QET come prova del backend BTicino.

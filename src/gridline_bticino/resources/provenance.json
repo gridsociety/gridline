@@ -1,0 +1,22 @@
+{
+  "origin": "Grid Society native-export workflow, DEMO75 P1, 2026-10-26",
+  "frame": "Company cartiglio_schemi.html with local A4 adaptation; no electrical glyphs",
+  "resources": {
+    "template_metadata.json": "f237751dc3b84e323daf2c3dec12113f83e969e3e372a1c1b4275dd025f13240",
+    "schemas/exports.schema.json": "df79005f64a1cb4a88f36ff78865e382383306b74264444bf27e96d8d6fc315e",
+    "schemas/request.schema.json": "ca59486cb146039be6adba09e1908f27aa7aa71c90ef7eaecf6a3857d5e97eda",
+    "profiles/native-symbols.json": "ac942ada07d298dbd3ddb505829697ac782ffdd188e3a8a30ea4837ab5432bf1",
+    "profiles/tisystem-technical-a4-v1.json": "34d5e0cbb89e75ee0950ee81d24647abc81a5997386be48c721959c91a732b58",
+    "assets/logo-grid-society.svg": "034ec8ccb4cde8f20d175f8f97b293d6aa46f76b677d6a314b22eef4555ab068",
+    "templates/drawings/cover.html": "02a98374d6fc0f47ad347a6085214be6efd429fee473627863d70df8388a800d",
+    "templates/drawings/shared-cartiglio.html": "96ceed8a181ee57431661fe76fb463422c14101cbdf1546ce7db424314d863c1",
+    "templates/drawings/fascicolo.html": "8f87295ccc77b6fe58511312f096ef43f433c4543ea4f8e193b77a3cb5b5ea39",
+    "templates/drawings/cartiglio.html": "7b87c689d072f9de2297857b5a47c9a47224e7c3c2b18bc2df452ca2fc227b08",
+    "templates/drawings/fascicolo-a4_portrait.html": "b9b6690d718a1c37c3b85f6592d5e11bdd5637d2c48c3e7f43ac16be7753dcfb",
+    "templates/drawings/fascicolo-a3_landscape.html": "b9b6690d718a1c37c3b85f6592d5e11bdd5637d2c48c3e7f43ac16be7753dcfb",
+    "templates/drawings/fascicolo-a4_landscape.html": "b9b6690d718a1c37c3b85f6592d5e11bdd5637d2c48c3e7f43ac16be7753dcfb"
+  },
+  "native_exports_included": false,
+  "vendor_catalogues_included": false,
+  "personal_stamps_included": false
+}

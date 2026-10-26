@@ -1,0 +1,34 @@
+{
+  "studio": "GRID SOCIETY S.R.L.",
+  "office": "Ufficio tecnico — sistemi elettrici e accumulo",
+  "company_address": "Via Daniele Piccinini, 2 · 24122 Bergamo (BG)",
+  "company_vat": "P. IVA / C.F. 04696750167",
+  "location": "DIMOSTRATORE — ubicazione da definire",
+  "site_address": "Caso indipendente; nessun sito reale assegnato",
+  "owner": "Grid Society — progetto dimostrativo interno",
+  "intervention": "Sistema BESS da 7,5 MW / 15 MWh: tre batterie da 2,5 MW / 5 MWh, station Ingeteam candidata, linea MT e quattro alimentazioni ausiliarie.",
+  "phase": "PROGETTO PRELIMINARE · REVISIONE P1",
+  "subject": "SCHEMI ELETTRICI UNIFILARI",
+  "subject_detail": "Generale MT · Simboli · Quadro AUX · Componenti e verifiche",
+  "project_lead": null,
+  "designer": "Progettista da assegnare",
+  "drafter": "Ufficio tecnico",
+  "professional_register": "",
+  "check": null,
+  "approval": null,
+  "stamp": null,
+  "revisions": [
+    {
+      "revision": "P1",
+      "date": "26/10/2026",
+      "description": "Prima emissione — esempio indipendente 7,5 MW / 15 MWh",
+      "drawn": "Ufficio tecnico",
+      "checked": "",
+      "approved": ""
+    }
+  ],
+  "legal_note": "Esempio preliminare con ipotesi dichiarate. Progettista, verifica e approvazione da assegnare; nessun timbro personale incluso.",
+  "sources": [
+    "Esempio sintetico Gridline"
+  ]
+}
