@@ -1,5 +1,10 @@
 # Secondo contributo: automazione BTicino
 
+**Stato 26/10/2026:** contributo integrato su `main`. QElectroTech e BTicino sono
+due percorsi disponibili dello stesso programma. Per l'uso corrente leggere
+`integrations/bticino/README.md` e `skills/gridline/SKILL.md`. La procedura sotto
+resta come riferimento storico per il contributo iniziale.
+
 Destinazione: **https://github.com/gridsociety/gridline**.
 Il primo commit introduce il percorso QElectroTech. Il secondo contributo
 aggiunge l'automazione BTicino nello stesso programma, preservando il primo.
