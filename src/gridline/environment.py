@@ -37,7 +37,8 @@ def doctor(*, probe=True):
         "Seguire docs/installation.md: accesso a gridsociety/documentor, revisione fissata; oppure GRIDLINE_DOCUMENTOR al comando esistente.")
     if command and probe:
         try:
-            result = subprocess.run([command, "doctor"], capture_output=True, text=True, timeout=60)
+            result = subprocess.run([command, "doctor"], capture_output=True, encoding="utf-8",
+                                    env={**os.environ, "PYTHONUTF8": "1"}, timeout=60)
             add("documentor-browser", result.returncode == 0, (result.stdout + result.stderr).strip(),
                 "Usare documentor install-browser e ripetere documentor doctor; vedere docs/installation.md.")
         except (OSError, subprocess.TimeoutExpired) as exc:

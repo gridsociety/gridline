@@ -7,6 +7,14 @@ from qelectrotech_mcp import server
 from qelectrotech_mcp.installation import discover
 
 
+def test_bundled_symbol_hashes_survive_checkout():
+    import hashlib
+    import json
+    symbols = RESOURCES / "symbols"
+    for entry in json.loads((symbols / "manifest.json").read_text(encoding="utf-8")):
+        assert hashlib.sha256((symbols / entry["file"]).read_bytes()).hexdigest() == entry["sha256"]
+
+
 def test_explicit_installation_paths(tmp_path):
     binary = tmp_path / "portable qet"; binary.write_text("")
     symbols = tmp_path / "elements"; symbols.mkdir()
@@ -39,7 +47,7 @@ def test_edit_cycle_without_desktop(tmp_path, monkeypatch):
     server.update_element(str(p), a["element_uuid"], {"label": "Q.UPDATED"})
     preview = tmp_path / "preview.svg"
     server.render_preview(str(p), str(preview))
-    assert "Q.UPDATED" in preview.read_text()
+    assert "Q.UPDATED" in preview.read_text(encoding="utf-8")
     assert list(tmp_path.glob("*.bak-*"))
     with pytest.raises(ValueError, match="already connected"):
         server.connect_elements(str(p), a["element_uuid"], 2, b["element_uuid"], 1)
@@ -62,9 +70,9 @@ def test_same_filename_different_symbols_do_not_alias(tmp_path, monkeypatch):
     monkeypatch.setattr(server, "ELEMENTS_ROOT", None)
     a_dir = tmp_path / "a"; a_dir.mkdir()
     b_dir = tmp_path / "b"; b_dir.mkdir()
-    text = (RESOURCES / "symbols/cb.elmt").read_text()
-    (a_dir / "part.elmt").write_text(text)
-    (b_dir / "part.elmt").write_text(text.replace('width="', 'data-variant="b" width="', 1))
+    text = (RESOURCES / "symbols/cb.elmt").read_text(encoding="utf-8")
+    (a_dir / "part.elmt").write_text(text, encoding="utf-8")
+    (b_dir / "part.elmt").write_text(text.replace('width="', 'data-variant="b" width="', 1), encoding="utf-8")
     p = tmp_path / "p.qet"; server.create_project(str(p), "Demo")
     server.add_element(str(p), str(a_dir / "part.elmt"), 100, 100, "A")
     server.add_element(str(p), str(b_dir / "part.elmt"), 100, 200, "B")

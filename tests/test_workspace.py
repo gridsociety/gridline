@@ -11,7 +11,7 @@ from gridline.cli import mcp_config
 def valid_project(tmp_path):
     project = new(tmp_path / "commessa con spazi")
     (project / "source/view.svg").write_text('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200"><path d="M 10 20 L 90 20"/></svg>')
-    meta = json.loads((project / "variables/drawing-set.json").read_text())
+    meta = json.loads((project / "variables/drawing-set.json").read_text(encoding="utf-8"))
     meta["pages"] = [{"source": "source/view.svg", "title": "Schema", "kind": "general", "width_mm": 420}]
     write_json(project / "variables/drawing-set.json", meta)
     return project, meta
@@ -22,7 +22,7 @@ def test_new_never_overwrites(tmp_path):
     (p / "source/user.txt").write_text("keep")
     with pytest.raises(FileExistsError):
         new(p)
-    assert (p / "source/user.txt").read_text() == "keep"
+    assert (p / "source/user.txt").read_text(encoding="utf-8") == "keep"
 
 
 def test_planned_backend_does_not_create_fake_project(tmp_path):
@@ -43,6 +43,14 @@ def test_spaces_and_file_contract(tmp_path):
     assert cfg["env"]["QET_ALLOWED_ROOTS"] == str(p)
     assert cfg["args"] == ["-m", "qelectrotech_mcp.server"]
     assert Path(cfg["command"]).is_file()
+
+
+def test_unicode_project_metadata(tmp_path):
+    p, meta = valid_project(tmp_path)
+    meta["client"] = "Città — società elettrica"
+    write_json(p / "variables/drawing-set.json", meta)
+    assert not check(p)["errors"]
+    assert json.loads((p / "variables/drawing-set.json").read_text(encoding="utf-8"))["client"] == meta["client"]
 
 
 @pytest.mark.parametrize("field,value", [("source", "../outside.svg"), ("width_mm", 200), ("kind", "unknown")])

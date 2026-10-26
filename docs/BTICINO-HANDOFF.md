@@ -71,7 +71,7 @@ git push -u origin feat/bticino
 
 Aprire una pull request verso `main` con titolo uguale al commit. Descrivere
 il comportamento ottenuto, un comando riproducibile, test eseguiti e limiti
-ancora aperti. Con merge squash il contributo diventa il secondo commit logico
+ancora aperti. Con merge squash il contributo diventa il contributo successivo
 su main. Non fare force-push e non usare il checkout attivo di un altro agente.
 
 ## Prompt pronto da inoltrare

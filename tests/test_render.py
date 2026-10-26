@@ -18,4 +18,4 @@ def test_documentor_failure_does_not_replace_existing_pdf(tmp_path, monkeypatch)
         documentor_bridge.generate(p, book, meta, [{"title": "Demo"}], output)
     assert output.read_bytes() == b"previous verified result"
     assert not (p / "out/documentor-provenance.json").exists()
-    assert "failed" in (p / "out/documentor-render.log").read_text()
+    assert "failed" in (p / "out/documentor-render.log").read_text(encoding="utf-8")

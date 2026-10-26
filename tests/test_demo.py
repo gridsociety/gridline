@@ -27,6 +27,6 @@ def test_double_feeder_through_actual_stdio(tmp_path):
     labels = {e.findtext("elementInformations/elementInformation[@name='label']"): e.get("uuid") for e in elements}
     assert labels["DG.CLIENTE"] != labels["DG.BESS"]
     assert len(adjacent[labels["DG.CLIENTE"]]) == len(adjacent[labels["DG.BESS"]]) == 1
-    report = json.loads((p / "qa/environment-readiness.json").read_text())
+    report = json.loads((p / "qa/environment-readiness.json").read_text(encoding="utf-8"))
     assert report["mcp_stdio_verified"] and not report["documentor_render_verified"]
     assert not report["native_qet_visual_verified"]

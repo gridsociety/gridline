@@ -8,3 +8,4 @@
 - Demo sintetica a doppio montante attraverso MCP STDIO, PDF Documentor e QA.
 - Template aggiornato, catalogo con provenienza e sostituzione dei simboli non distribuibili.
 - Contratto di consegna e guida per il contributo BTicino successivo.
+- Lettura UTF-8 esplicita e preservazione byte dei simboli su Windows, verificate dalla CI.

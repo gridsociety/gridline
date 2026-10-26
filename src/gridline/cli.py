@@ -18,7 +18,7 @@ def mcp_config(project):
     return {"mcpServers": {"gridline-qelectrotech": {
         "command": str(Path(sys.executable).absolute()),
         "args": ["-m", "qelectrotech_mcp.server"],
-        "env": {"QET_ALLOWED_ROOTS": str(project), **{
+        "env": {"QET_ALLOWED_ROOTS": str(project), "PYTHONUTF8": "1", **{
             name: os.environ[name] for name in ["QET_BINARY", "QET_ELEMENTS_ROOT", "QET_TITLEBLOCKS_ROOT"] if name in os.environ}},
     }}}
 

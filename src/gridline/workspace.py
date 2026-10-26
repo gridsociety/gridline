@@ -56,7 +56,7 @@ def check(project):
     if errors:
         return {"errors": errors, "electrical_compliance_verified": False}
     try:
-        meta = json.loads((project / "variables/drawing-set.json").read_text())
+        meta = json.loads((project / "variables/drawing-set.json").read_text(encoding="utf-8"))
         for key in ["title", "client", "site", "code", "slug", "revision", "date", "revisions", "pages"]:
             if not meta.get(key):
                 errors.append(f"Missing or empty {key}")

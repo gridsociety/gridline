@@ -108,7 +108,7 @@ le verifiche effettivamente eseguite sono riportate in [VALIDATION.md](VALIDATIO
 - [Installazione e requisiti](docs/installation.md)
 - [Uso da un agente](docs/agent-workflow.md)
 - [Architettura e contratto delle integrazioni](docs/architecture.md)
-- [Istruzioni per il secondo commit BTicino](docs/BTICINO-HANDOFF.md)
+- [Istruzioni per il contributo BTicino](docs/BTICINO-HANDOFF.md)
 - [Contribuire e convenzioni dei commit](CONTRIBUTING.md)
 - [Provenienza e licenze dei contenuti](NOTICE.md)
 

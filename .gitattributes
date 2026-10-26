@@ -1,2 +1,8 @@
+# Source and documentation use LF on every platform.
+* text=auto eol=lf
+# Native artifacts and upstream symbols keep exact bytes for provenance hashes.
+*.elmt -text
+*.qet -text
+*.svg -text
 # Preserve the upstream license verbatim, including its whitespace.
-src/gridline/resources/symbols/QET-Elements.LICENSE -whitespace
+src/gridline/resources/symbols/QET-Elements.LICENSE -text -whitespace

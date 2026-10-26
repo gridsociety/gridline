@@ -36,7 +36,8 @@ def generate(project, book, meta, pages, out):
         pending = Path(temp) / out.name
         cmd = [command, "render", "drawings/project-single-line.html", "--vars", str(variables_path),
                "--workspace", str(project), "--draft", "--out", str(pending)]
-        result = subprocess.run(cmd, text=True, capture_output=True, timeout=180)
+        result = subprocess.run(cmd, encoding="utf-8", capture_output=True,
+                                env={**os.environ, "PYTHONUTF8": "1"}, timeout=180)
         (project / "out/documentor-render.log").write_text(result.stdout + "\n" + result.stderr, encoding="utf-8")
         if result.returncode:
             raise RuntimeError("Documentor failed. See out/documentor-render.log. No PDF fallback.")

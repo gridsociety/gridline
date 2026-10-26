@@ -19,6 +19,7 @@ async def build(destination, *, render_pdf=True, require_desktop=False):
     svg = project / "source/double-feeder.svg"
     env = dict(os.environ)
     env["QET_ALLOWED_ROOTS"] = str(project)
+    env["PYTHONUTF8"] = "1"
     params = StdioServerParameters(command=sys.executable, args=["-m", "qelectrotech_mcp.server"], env=env)
     trace = []
     with (project / "qa/mcp-stderr.log").open("w", encoding="utf-8") as log:
@@ -75,7 +76,7 @@ async def build(destination, *, render_pdf=True, require_desktop=False):
                 await call("render_preview", path=str(qet), output_svg=str(svg))
     write_json(project / "qa/mcp-trace.json", trace)
     metadata_path = project / "variables/drawing-set.json"
-    metadata = json.loads(metadata_path.read_text())
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     metadata.update(title="Doppio montante — esempio didattico", client="CLIENTE FITTIZIO", site="SITO DIMOSTRATIVO")
     metadata["pages"] = [{"source": "source/double-feeder.svg", "title": "Doppio montante — esempio didattico",
         "kind": "general", "variant": "A", "width_mm": 420,

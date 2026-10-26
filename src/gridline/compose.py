@@ -11,7 +11,7 @@ def render(project,output=None):
  project=Path(project).resolve()
  errors=check(project)["errors"]
  if errors:raise ValueError("Invalid project: " + "; ".join(errors))
- m=json.loads((project/'variables/drawing-set.json').read_text());pages=m['pages'];book=fitz.open();metrics=[]
+ m=json.loads((project/'variables/drawing-set.json').read_text(encoding="utf-8"));pages=m['pages'];book=fitz.open();metrics=[]
  if not pages:raise ValueError('No pages')
  if any(p.get('kind')=='general' for p in pages[ next((i for i,p in enumerate(pages) if p.get('kind')=='detail'),len(pages)):]):raise ValueError('General sheets must precede details')
  logo=E.parse(RESOURCES/'brand/logo.svg').getroot()
