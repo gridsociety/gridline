@@ -7,9 +7,25 @@ standard per produrre un unifilare modificabile e il PDF aziendale.**
 > conserva l'esistente e inserisci un doppio montante cliente/BESS. Genera il
 > QET editabile e il PDF Documentor; registra ipotesi e verifiche aperte.»
 
-L'agente interpreta la richiesta, sceglie i simboli e modifica il circuito.
-QElectroTech conserva il disegno elettrico; Documentor produce il PDF finale.
-Gridline offre gli strumenti di supporto, senza sostituire il riesame elettrico.
+L'agente sceglie il percorso in base all'elaborato richiesto. QElectroTech conserva il disegno generale modificabile; TiSystem produce gli schemi di quadro con i dati tecnici nativi. Documentor compone i PDF aziendali. I controlli software non sostituiscono il riesame elettrico.
+
+## Scegliere il tipo di elaborato
+
+| Richiesta professionale | Percorso | Uso |
+| --- | --- | --- |
+| **Schema generale di integrazione** | QElectroTech · `general` | Architettura d'impianto, esistente, nuovo BESS, montanti e interfacce |
+| **Schema di quadro con dati di dimensionamento** | BTicino · `equipment` | Componenti in colonna, cavi, portate, poteri d'interruzione e tarature da export TiSystem |
+| **Fascicolo coordinato generale e quadri** | Entrambi · `combined` | Due viste della stessa commessa, con modelli e verifiche distinti |
+
+Esempi di richiesta: «Genera lo schema generale per integrare il BESS nell'impianto esistente» oppure «Genera l'unifilare del quadro con specifiche dei prodotti, cavi, tarature, portate e poteri d'interruzione». Se servono entrambi, chiedere il fascicolo coordinato. L'agente esplicita la scelta prima di produrre gli elaborati; non converte automaticamente un QET in un calcolo TiSystem.
+
+```sh
+uv run --frozen gridline workflows
+uv run --frozen gridline new /percorso/commessa --workflow equipment
+uv run --frozen gridline new /percorso/fascicolo --workflow combined
+```
+
+Progettista e disegnatore sono dati della commessa. Nessun timbro personale è incluso o attribuito automaticamente ai colleghi.
 
 ## Per iniziare con un agente
 
@@ -60,7 +76,8 @@ un'applicazione separata e va installata sul computer.
 | `src/gridline/` | CLI, diagnosi, workspace, demo MCP e composizione Documentor |
 | `src/gridline/resources/` | Catalogo con provenienza, logo e template per le tavole |
 | `integrations/qelectrotech/` | Procedura e limiti dell'integrazione disponibile |
-| `integrations/bticino/` | Punto di ingresso per il secondo contributo, attualmente pianificato |
+| `integrations/bticino/` | Workflow TiSystem, acquisizione nativa, MCP e Documentor |
+| `src/gridline_bticino/`, `skills/grid-bticino/` | Adapter, MCP locale, profili e metodo BTicino |
 | `examples/double-feeder/` | Richiesta e istruzioni per la demo sintetica |
 | `tests/` | Regressioni del codice e del contratto di progetto |
 
@@ -69,8 +86,9 @@ flowchart LR
     R[Richiesta e allegati] --> A[Agente e skill]
     A --> Q[MCP QElectroTech]
     Q --> S[QET e viste]
-    A -. integrazione successiva .-> B[BTicino TiSystem]
-    B -. export nativo .-> V[Viste e dati delle tavole]
+    A --> B[BTicino TiSystem via browser]
+    B --> N[MCP export nativi]
+    N --> V[Viste e dati delle tavole]
     S --> V
     V --> D[Documentor]
     D --> P[PDF aziendale e verifiche]
@@ -99,16 +117,22 @@ Ogni commessa conserva `source/`, `inputs/`, `notes/`, `variables/`, `qa/`,
 
 ## Stato e contributi
 
-Prima versione: flusso QElectroTech derivato dallo standard aziendale 1.0.1,
-con diagnosi portabile, dipendenze fissate e prova MCP riproducibile.
-L'integrazione BTicino non è dichiarata disponibile finché non arriva il suo
-contributo verificato. Il rilevamento include macOS, Windows e Linux;
-le verifiche effettivamente eseguite sono riportate in [VALIDATION.md](VALIDATION.md).
+Sono disponibili il percorso QElectroTech e l'adapter BTicino da export nativi.
+Il MCP BTicino prepara, controlla e impagina i file; il calcolo e l'export avvengono
+in TiSystem web autenticato. Il repository non contiene sessioni browser,
+cataloghi OEM, export privati né timbri. L'esempio pubblico BTicino contiene
+input sintetici; la demo reale è descritta in [VALIDATION.md](VALIDATION.md).
+
+Il workspace combinato instrada i due backend e produce due consegne; la
+riconciliazione tecnica resta esplicita. Dettagli costruttivi, viste fronte/lato,
+guide DIN, morsettiere e 3D sono nella [roadmap](docs/ROADMAP.md), con criteri di
+completamento. Non sono funzionalità già disponibili.
 
 - [Installazione e requisiti](docs/installation.md)
 - [Uso da un agente](docs/agent-workflow.md)
 - [Architettura e contratto delle integrazioni](docs/architecture.md)
-- [Istruzioni per il contributo BTicino](docs/BTICINO-HANDOFF.md)
+- [Uso e limiti BTicino](integrations/bticino/README.md)
+- [Sviluppi futuri e criteri di completamento](docs/ROADMAP.md)
 - [Contribuire e convenzioni dei commit](CONTRIBUTING.md)
 - [Provenienza e licenze dei contenuti](NOTICE.md)
 

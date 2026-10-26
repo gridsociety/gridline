@@ -19,7 +19,10 @@ def documentor_command():
     return str(Path(override).expanduser()) if override else shutil.which("documentor")
 
 
-def doctor(*, probe=True):
+def doctor(*, probe=True, backend='qelectrotech'):
+    if backend == 'bticino':
+        from gridline_bticino.environment import doctor as bt_doctor
+        return bt_doctor(probe=probe)
     qet = discover()
     command = documentor_command()
     checks = []

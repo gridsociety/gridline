@@ -1,0 +1,18 @@
+{
+  "id": "tisystem-technical-a4-v1",
+  "vendor": "BTicino TiSystem",
+  "page_size_pt": [841.9, 595.3],
+  "page_tolerance_pt": 0.5,
+  "producer_contains": "Aspose.Words",
+  "coordinate_labels": ["A", "B", "C", "D", "E", "F", "G", "H", "L", "M"],
+  "left_border_range_pt": [48, 51],
+  "right_border_range_pt": [822, 825],
+  "top_border_range_pt": [26, 36],
+  "bottom_border_range_pt": [510, 521],
+  "footer_anchor": "DISEGNATO",
+  "footer_anchors": ["DISEGNATO", "COMMESSA", "DESCRIZIONE"],
+  "legend_anchor": "LEGENDA SIMBOLI GRAFICI",
+  "single_line_anchors": ["NUMERAZIONE CIRCUITO", "DESCRIZIONE CIRCUITO", "CONDUTTURA", "FONDO LINEA"],
+  "forbidden_visible_text": ["DISEGNATO", "DATA CREAZIONE", "DATA REV.", "Non è permesso"],
+  "authorization": "User annotated screenshot, 2026-10-26: display only technical interior inside the Grid Society title block."
+}

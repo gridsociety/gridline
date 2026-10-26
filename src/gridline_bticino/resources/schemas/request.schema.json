@@ -1,0 +1,430 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Grid Society native SLD request v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "document": {
+      "type": "object",
+      "properties": {
+        "company": {
+          "const": "GS"
+        },
+        "project": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9-]{0,23}$"
+        },
+        "discipline": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9-]{0,23}$"
+        },
+        "family": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9-]{0,23}$"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 999
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^P[0-9]{1,3}$"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "status": {
+          "const": "DRAFT"
+        },
+        "designer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approver": {
+          "const": ""
+        },
+        "customer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "change_description": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "company",
+        "project",
+        "discipline",
+        "family",
+        "sequence",
+        "revision",
+        "date",
+        "status",
+        "designer",
+        "approver",
+        "customer",
+        "title",
+        "project_name"
+      ],
+      "additionalProperties": false
+    },
+    "design": {
+      "type": "object",
+      "properties": {
+        "voltage_V": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actual_main": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_main": {
+          "type": "string",
+          "minLength": 1
+        },
+        "circuits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Z][A-Z0-9_-]{0,31}$"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "from": {
+                "type": "string",
+                "minLength": 1
+              },
+              "to": {
+                "type": "string",
+                "minLength": 1
+              },
+              "phases": {
+                "enum": [
+                  "L1L2L3N",
+                  "L1L2L3",
+                  "L1N",
+                  "L2N",
+                  "L3N"
+                ]
+              },
+              "power": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "anyOf": [
+                      {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "unit": {
+                    "const": "kW"
+                  },
+                  "status": {
+                    "enum": [
+                      "confirmed",
+                      "assumed",
+                      "proposed",
+                      "missing"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "value",
+                  "unit",
+                  "status",
+                  "source"
+                ],
+                "additionalProperties": false,
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "value": {
+                          "type": "null"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "status": {
+                          "const": "missing"
+                        }
+                      }
+                    },
+                    "else": {
+                      "properties": {
+                        "status": {
+                          "enum": [
+                            "confirmed",
+                            "assumed",
+                            "proposed"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "cos_phi": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1
+              },
+              "length": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "anyOf": [
+                      {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "unit": {
+                    "const": "m"
+                  },
+                  "status": {
+                    "enum": [
+                      "confirmed",
+                      "assumed",
+                      "proposed",
+                      "missing"
+                    ]
+                  },
+                  "source": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "value",
+                  "unit",
+                  "status",
+                  "source"
+                ],
+                "additionalProperties": false,
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "value": {
+                          "type": "null"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "status": {
+                          "const": "missing"
+                        }
+                      }
+                    },
+                    "else": {
+                      "properties": {
+                        "status": {
+                          "enum": [
+                            "confirmed",
+                            "assumed",
+                            "proposed"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "phase_section_mm2": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "neutral_section_mm2": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "pe_section_mm2": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "requested_breaker_A": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "installation": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "from",
+              "to",
+              "phases",
+              "power",
+              "cos_phi",
+              "length",
+              "phase_section_mm2",
+              "neutral_section_mm2",
+              "pe_section_mm2",
+              "requested_breaker_A",
+              "installation"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "voltage_V",
+        "system",
+        "source_model",
+        "actual_main",
+        "model_main",
+        "circuits"
+      ],
+      "additionalProperties": false
+    },
+    "notes": {
+      "type": "object",
+      "properties": {
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "parameter": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "type": "string",
+                "minLength": 1
+              },
+              "basis": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "parameter",
+              "value",
+              "basis"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "open_checks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "assumptions",
+        "findings",
+        "open_checks"
+      ],
+      "additionalProperties": false
+    },
+    "agent_request": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "document",
+    "design",
+    "notes"
+  ],
+  "additionalProperties": false
+}

@@ -9,13 +9,14 @@ dependencies = ["mcp==1.26.0", "PyMuPDF==1.27.2.3"]
 [project.scripts]
 gridline = "gridline.cli:main"
 qelectrotech-mcp = "qelectrotech_mcp.server:main"
+gridline-bticino-mcp = "gridline_bticino.server:main"
 
 [build-system]
 requires = ["hatchling>=1.27,<2"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/gridline", "src/qelectrotech_mcp"]
+packages = ["src/gridline", "src/qelectrotech_mcp", "src/gridline_bticino"]
 
 [dependency-groups]
 dev = ["pytest>=8.4,<9"]

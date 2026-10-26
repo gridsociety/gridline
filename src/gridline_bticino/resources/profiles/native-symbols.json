@@ -1,0 +1,149 @@
+{
+  "breaker": {
+    "source": "ABB",
+    "page": 61,
+    "clip": [
+      441,
+      289,
+      455,
+      327
+    ],
+    "ports": {
+      "in": [
+        451.0008,
+        290.5575
+      ],
+      "out": [
+        451.0008,
+        325.1165
+      ]
+    },
+    "meaning": "Interruttore di potenza con apertura automatica · simbolo generale ABB IEC 60617"
+  },
+  "isolator": {
+    "source": "BT",
+    "page": 0,
+    "clip": [
+      234,
+      143,
+      253,
+      192
+    ],
+    "ports": {
+      "in": [
+        243.6,
+        144
+      ],
+      "out": [
+        243.6,
+        191
+      ]
+    },
+    "meaning": "Interruttore sezionatore · simbolo generale TiSystem"
+  },
+  "transformer": {
+    "source": "BT",
+    "page": 0,
+    "clip": [
+      526,
+      143,
+      565,
+      192
+    ],
+    "ports": {
+      "in": [
+        552.8,
+        144
+      ],
+      "out": [
+        552.8,
+        191
+      ]
+    },
+    "meaning": "Trasformatore MT/BT · simbolo generale TiSystem senza gruppo vettoriale"
+  },
+  "fuse": {
+    "source": "BT",
+    "page": 0,
+    "clip": [
+      237,
+      252,
+      249,
+      300
+    ],
+    "ports": {
+      "in": [
+        243.2,
+        253
+      ],
+      "out": [
+        243.2,
+        299
+      ]
+    },
+    "meaning": "Fusibile · simbolo generale TiSystem"
+  },
+  "ct": {
+    "source": "UNI",
+    "page": 20,
+    "clip": [
+      220,
+      490,
+      233,
+      505
+    ],
+    "ports": {
+      "in": [
+        224.5547,
+        490
+      ],
+      "out": [
+        224.5547,
+        505
+      ]
+    },
+    "meaning": "TA · originale tipologico OEM UniSec"
+  },
+  "vt": {
+    "source": "UNI",
+    "page": 20,
+    "clip": [
+      486,
+      315,
+      495,
+      335
+    ],
+    "ports": {
+      "in": [
+        490.1857,
+        315
+      ],
+      "out": [
+        490.1857,
+        333.548
+      ]
+    },
+    "meaning": "TV · originale tipologico OEM UniSec"
+  },
+  "earth_switch": {
+    "source": "UNI",
+    "page": 20,
+    "clip": [
+      214,
+      515.5,
+      226.5,
+      532
+    ],
+    "ports": {
+      "in": [
+        224.5547,
+        515.5
+      ],
+      "out": [
+        224.5547,
+        532
+      ]
+    },
+    "meaning": "Sezionatore di terra su linea · originale tipologico OEM UniSec"
+  }
+}

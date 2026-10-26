@@ -1,0 +1,38 @@
+<style>
+.technical-cover{height:242mm;display:grid;grid-template-rows:20mm 18mm 21mm 23mm 12mm 18mm 20mm 16mm 36mm 27mm 21mm;gap:1mm;font-size:3.15mm;line-height:1.25}
+.technical-cover .box{border:.2mm solid var(--rule);padding:2mm 3mm;box-sizing:border-box;overflow:hidden}
+.technical-cover .label{font-size:2.2mm;font-weight:600;letter-spacing:.04em;color:#555;display:block;margin-bottom:1.5mm;text-transform:uppercase}
+.technical-cover .value{font-size:3.7mm;font-weight:600}
+.technical-cover .split{display:grid;grid-template-columns:1fr 1fr}
+.technical-cover .split>div+div{border-left:.2mm solid var(--rule)}
+.technical-cover .split>div{padding:2mm 3mm}
+.technical-cover .split.box{padding:0}
+.technical-cover .studio{display:flex;justify-content:space-between;align-items:center}
+.technical-cover .studio img{width:39mm;height:15mm;object-fit:contain}
+.technical-cover .studio strong{font-size:4mm}
+.technical-cover .center{text-align:center}
+.technical-cover .phase{font-weight:700;font-size:5mm;letter-spacing:.05em;display:flex;justify-content:center;align-items:center}
+.technical-cover .meta{grid-template-columns:1.2fr 1fr .65fr .7fr}
+.technical-cover .roles{grid-template-columns:1fr 1fr 1fr}
+.technical-cover .sign{display:grid;grid-template-columns:1.1fr 1.4fr 31mm;align-items:center}
+.technical-cover .sign img{width:29mm;height:29mm;object-fit:contain}
+.technical-cover .register{font-size:2.45mm;line-height:1.3;margin-top:2mm}
+.technical-cover table{border-collapse:collapse;width:100%;table-layout:fixed;font-size:2.6mm}
+.technical-cover th,.technical-cover td{border:.2mm solid var(--rule);padding:1mm 1mm;text-align:left;font-weight:400;vertical-align:top}
+.technical-cover th{font-size:2.15mm;background:#f6f6f6}
+.technical-cover .revisions{padding:0}
+.technical-cover .small{font-size:2.55mm;line-height:1.3}
+</style>
+<div class="technical-cover">
+ <div class="box studio"><div><strong>{{ cover.studio|e }}</strong><div>{{ cover.office|e }}</div><div class="small">{{ cover.company_address|e }} · {{ cover.company_vat|e }}</div></div><img src="{{ cart.logo_url }}" alt="Grid Society"></div>
+ <div class="box"><span class="label">Ubicazione dell’intervento</span><div class="value">{{ cover.location|e }}</div><div>{{ cover.site_address|e }}</div></div>
+ <div class="box"><span class="label">Proprietà / committente</span><div class="value">{{ cover.owner|e }}</div><div>{{ cover.site_address|e }}</div></div>
+ <div class="box"><span class="label">Descrizione dell’intervento</span><div>{{ cover.intervention|e }}</div></div>
+ <div class="box phase">{{ cover.phase|e }}</div>
+ <div class="box split meta"><div><span class="label">Commessa</span><b>{{ document.project|e }} · BESS</b></div><div><span class="label">Data</span>{{ cart.data }}</div><div><span class="label">Scala</span>NTS</div><div><span class="label">Tavola</span>01 / {{ total }}</div></div>
+ <div class="box center"><span class="label">Oggetto</span><div class="value">{{ cover.subject|e }}</div><div class="small">{{ cover.subject_detail|e }}</div></div>
+ <div class="box split roles"><div><span class="label">Capogruppo</span>{{ cover.project_lead|default('Da assegnare',true)|e }}</div><div><span class="label">Disegnatore</span>{{ cover.drafter|e }}</div><div><span class="label">Verifica / approvazione</span>{{ cover.check|default('Da eseguire',true)|e }}</div></div>
+ <div class="box sign"><div><span class="label">Progettazione</span><b>{{ cover.studio|e }}</b><div>{{ cover.office|e }}</div></div><div><span class="label">Progettista</span><b>{{ cover.designer|e }}</b><div class="register">{{ cover.professional_register|e }}</div><div class="small">Firma da apporre dopo il riesame</div></div>{% if stamp_url %}<img src="{{ stamp_url }}" alt="Timbro identificativo del progettista">{% endif %}</div>
+ <div class="box revisions"><table><colgroup><col style="width:9%"><col style="width:17%"><col style="width:38%"><col style="width:14%"><col style="width:11%"><col style="width:11%"></colgroup><thead><tr><th>Rev.</th><th>Data</th><th>Descrizione</th><th>Disegnato</th><th>Verificato</th><th>Approvato</th></tr></thead><tbody>{% for rev in cover.revisions %}<tr><td>{{ rev.revision|e }}</td><td>{{ rev.date|e }}</td><td>{{ rev.description|e }}</td><td>{{ rev.drawn|e }}</td><td>{{ rev.checked|e }}</td><td>{{ rev.approved|e }}</td></tr>{% endfor %}{% if cover.revisions|length < 2 %}<tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td></tr>{% endif %}</tbody></table></div>
+ <div class="box small"><b>{{ code|e }} · {{ document.revision|e }}</b><br>{{ cover.legal_note|e }}<br><span>Indice: {% for row in index %}{{ row.number }} {{ row.short|default(row.title)|e }}{% if not loop.last %} · {% endif %}{% endfor %}</span></div>
+</div>

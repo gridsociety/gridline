@@ -11,10 +11,13 @@ from xml.etree import ElementTree as ET
 
 from .paths import RESOURCES, project_file
 
-BACKENDS = {"qelectrotech": "available", "bticino": "planned"}
+BACKENDS = {"qelectrotech": "available", "bticino": "available-native-exports"}
 
 
 def new(destination, backend="qelectrotech"):
+    if backend == "bticino":
+        from gridline_bticino.integration import new as new_bticino
+        return new_bticino(destination)
     if BACKENDS.get(backend) != "available":
         raise ValueError(f"Integration {backend!r} is not implemented; see integrations/{backend}/README.md")
     project = Path(destination).resolve()
@@ -47,6 +50,20 @@ def write_json(path, value):
 
 def check(project):
     project = Path(project).resolve()
+    try:
+        config=json.loads((project/'gridline.json').read_text(encoding="utf-8"))
+        if config.get('backend')=='combined':
+            from .workflows import children
+            results={k:check(v) for k,v in children(project).items()}
+            return {'errors':[key+': '+e for key,res in results.items() for e in res['errors']],
+                    'electrical_compliance_verified':False,'coordination_review':'OPEN','children':results}
+        if config.get('backend')=='bticino':
+            from gridline_bticino.integration import check as check_bticino
+            return check_bticino(project)
+        if config.get('backend')!='qelectrotech':
+            return {'errors':['Unknown backend'],'electrical_compliance_verified':False}
+    except (OSError,ValueError):
+        pass  # Existing QET validation reports malformed/missing files below.
     errors = []
     required = ["gridline.json", "documentor.toml", "template_metadata.json", "variables/drawing-set.json"]
     required += [f"notes/{n}.md" for n in ["context", "decisions", "status", "attachments"]]

@@ -1,0 +1,275 @@
+{# ===================================================================
+   TEMPLATE CONDIVISO (standards) — Foglio di SCHEMA con cartiglio
+   Grid Society a fascia inferiore (stile tavole logiche / multifilari).
+
+   Vive nel bundle standards: si usa da un workspace con
+       {% import "standards/components/cartiglio_schemi.html" as gs %}
+   (i template standards NON si renderizzano direttamente).
+
+   Differenza rispetto a `cartiglio_dxf.html` / `cartiglio_sld_dxf.html`
+   (cartiglio ad angolo 140x110 mm per tavole DXF in scala): qui il
+   cartiglio e' una FASCIA a tutta larghezza sul bordo inferiore, il
+   foglio e' A4 landscape e la scala non e' significativa (schemi
+   logici, tabelle, estratti di schemi di terzi). Stessa palette,
+   stesse convenzioni CSS (unita' in mm, --gs-*, brand stripe).
+
+   USO
+   ---
+   1) nel template del workspace:
+        {% import "standards/components/cartiglio_schemi.html" as gs %}
+        {{ gs.page_setup(formato='a4_landscape') }}
+        {% set cart = {...} %}
+        {% call gs.sheet(cart, oggetto='...', foglio=1, total=40,
+                         banner='TITOLO DEL FOGLIO', color='red') %}
+           ...contenuto del foglio...
+        {% endcall %}
+
+   2) template_metadata.json:
+        "drawings/<tavola>.html": {
+          "page_size": "297mm 210mm", "orientation": "landscape" }
+
+   DIZIONARIO `cart` (fascia cartiglio)
+   ------------------------------------
+     committente   (string)  riga 1 del blocco di sinistra
+     progetto      (string)  riga 2
+     scala         (string)  default '-'
+     formato       (string)  default 'A4'
+     data          (string)  gg/mm/aaaa
+     redatto       (string)
+     approvato     (string)
+     emissione     (string)  es. "3a EMISSIONE"
+     rev           (string)  es. "23"
+     logo_url      (string)  default logo GS con scritta
+
+   `oggetto` e `foglio` sono per-foglio, non nel dizionario.
+
+   COLORI ammessi per `color`: red (default, sintesi GS), blue, green,
+   grey, orange, purple, dark. Convenzione d'uso negli allegati:
+   verde=UPDC, grigio=generale, rosso=BESS, arancio=fotovoltaico.
+   =================================================================== #}
+
+{# ---------- foglio: dimensioni pagina + CSS di base ---------- #}
+{% macro page_setup(formato='a4_landscape') %}
+{% set fmt = {'a4_landscape': (297, 210), 'a3_landscape': (420, 297), 'a4_portrait': (210, 297)}[formato] %}
+<style>
+  @page { size: {{ fmt[0] }}mm {{ fmt[1] }}mm; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; background: #fff; color: #1a1a1f;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 2.4mm; line-height: 1.2;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  :root {
+    /* brand Grid Society */
+    --gs-green: #4bb692; --gs-cyan: #00a1bb; --gs-orange: #f5aa00;
+    --gs-dark: #1a1a1f;
+    /* palette tecnica degli schemi (coerente con le tavole storiche) */
+    --c-red: #c71a1a; --c-blue: #1f388c; --c-green: #176b3d;
+    --c-grey: #47474d; --c-orange: #cc6b0d; --c-purple: #6b3399;
+    --frame-stroke: #000; --rule: #000; --rule-soft: #8a8a90;
+    --label: #5c5c66; --fill-soft: #f2f2f4;
+  }
+
+  /* ---------- foglio ---------- */
+  .gs-sheet {
+    position: relative; width: {{ fmt[0] }}mm; height: {{ fmt[1] }}mm;
+    background: #fff; overflow: hidden;
+  }
+  /* interruzione PRIMA di ogni foglio successivo al primo: evita la pagina
+     bianca finale che si ottiene con page-break-after su tutti i fogli. */
+  .gs-sheet + .gs-sheet { page-break-before: always; break-before: page; }
+
+  /* cornice esterna + cornice interna con zone (8 colonne x 6 righe) */
+  .gs-frame-out { position: absolute; inset: 5mm; border: 0.45mm solid var(--frame-stroke); z-index: 4; pointer-events: none; }
+  .gs-frame-in  { position: absolute; inset: 9mm; border: 0.2mm solid var(--frame-stroke); z-index: 4; pointer-events: none; }
+  .gs-zone { position: absolute; z-index: 5; font-size: 1.9mm; font-weight: 700; color: var(--label);
+             display: flex; align-items: center; justify-content: center; }
+  .gs-zone-tick { position: absolute; background: var(--frame-stroke); z-index: 5; }
+
+  /* area utile del disegno/contenuto */
+  .gs-body { position: absolute; left: 9mm; right: 9mm; z-index: 2; overflow: hidden; }
+  .gs-body.pad { padding: 2mm 3mm 0 3mm; }
+  .gs-body.bleed { left: 5.2mm; right: 5.2mm; }
+
+  /* ---------- banner di testata ---------- */
+  .gs-banner {
+    position: absolute; left: 9mm; right: 9mm; top: 9mm; height: 6mm; z-index: 6;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 1.8mm; color: #fff;
+  }
+  /* foglio "bare": tavola a tutta pagina (estratti di schemi di terzi), senza
+     cornice ne' cartiglio — la sola striscia di banner porta i riferimenti. */
+  .gs-sheet.bare .gs-banner { left: 0; right: 0; top: 0; }
+  .gs-banner .t { font-size: 2.5mm; font-weight: 800; letter-spacing: 0.01em; }
+  .gs-banner .f { font-size: 2.1mm; font-weight: 600; white-space: nowrap; }
+
+  /* ---------- cartiglio a fascia ---------- */
+  .gs-cart {
+    position: absolute; left: 9mm; right: 9mm; bottom: 10.3mm; height: 15mm;
+    z-index: 6; background: #fff; border: 0.3mm solid var(--rule);
+    display: grid; grid-template-columns: 42.2% 17.3% 18.5% 22%;
+  }
+  /* i blocchi non devono poter crescere oltre l'altezza della fascia */
+  .gs-cart > div { min-height: 0; min-width: 0; overflow: hidden; }
+  .gs-cart > div + div { border-left: 0.2mm solid var(--rule); }
+  .gs-cart-label { font-size: 1.6mm; font-weight: 700; text-transform: uppercase;
+                   letter-spacing: 0.05em; color: var(--label); line-height: 1; }
+  .gs-cart-value { font-size: 2.3mm; font-weight: 600; color: var(--gs-dark); line-height: 1.1; }
+
+  /* blocco 1: committente / progetto / oggetto */
+  .gs-cart-who { display: grid; grid-template-rows: 1fr 1fr 1fr; }
+  .gs-cart-who > div { display: grid; grid-template-columns: 25mm 1fr; align-items: center; }
+  .gs-cart-who > div + div { border-top: 0.2mm solid var(--rule); }
+  .gs-cart-who .k { padding-left: 1.2mm; border-right: 0.2mm solid var(--rule); height: 100%;
+                    display: flex; align-items: center; }
+  .gs-cart-who .v { padding: 0 1.5mm; }
+
+  /* blocco 2: scala / formato / data */
+  .gs-cart-meta { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .gs-cart-meta > div { display: flex; flex-direction: column; align-items: center;
+                        justify-content: center; gap: 1mm; }
+  .gs-cart-meta > div + div { border-left: 0.2mm solid var(--rule); }
+
+  /* blocco 3: logo */
+  .gs-cart-logo { display: flex; align-items: center; justify-content: center; padding: 1.2mm 3mm; }
+  /* altezza fissa: con max-height:100% l'altezza intrinseca dell'SVG
+     imporrebbe la riga di griglia e sfonderebbe la fascia del cartiglio. */
+  .gs-cart-logo img { height: 10.5mm; width: auto; max-width: 100%; object-fit: contain; }
+  .gs-cart-logo .brand { font-size: 3.4mm; font-weight: 800; letter-spacing: 0.14em; color: var(--gs-dark); }
+
+  /* blocco 4: firme + revisione */
+  .gs-cart-sign { display: grid; grid-template-rows: 1fr 1fr 1fr; }
+  .gs-cart-sign > div { display: flex; align-items: center; padding: 0 1.5mm; font-size: 2.1mm; }
+  .gs-cart-sign > div + div { border-top: 0.2mm solid var(--rule); }
+  .gs-cart-sign .em { display: grid; grid-template-columns: 1fr 14mm; padding: 0; }
+  .gs-cart-sign .em > span { display: flex; align-items: center; padding: 0 1.5mm; }
+  .gs-cart-sign .em .rev { border-left: 0.2mm solid var(--rule); flex-direction: column;
+                           align-items: center; justify-content: center; gap: 0.4mm; }
+  .gs-cart-sign .k { font-weight: 700; color: var(--label); font-size: 1.8mm; margin-right: 1mm; }
+
+  /* striscia brand sotto il cartiglio */
+  .gs-stripe { position: absolute; left: 9mm; right: 9mm; bottom: 9.2mm; height: 1mm; z-index: 6;
+    background: linear-gradient(to right,
+      var(--gs-green) 0%, var(--gs-green) 33%, var(--gs-cyan) 33%,
+      var(--gs-cyan) 66%, var(--gs-orange) 66%, var(--gs-orange) 100%); }
+
+  /* ---------- helper di contenuto riusabili ---------- */
+  .gs-h1 { font-size: 4.4mm; font-weight: 800; text-align: center; color: var(--gs-dark); }
+  .gs-h2 { font-size: 3.4mm; font-weight: 800; text-align: center; color: var(--gs-dark); }
+  .gs-sub { font-size: 2.5mm; text-align: center; color: var(--label); }
+  .gs-table { width: 100%; border-collapse: collapse; }
+  .gs-table th { background: var(--gs-dark); color: #fff; font-size: 2.2mm; font-weight: 700;
+                 padding: 1.2mm 1mm; border: 0.2mm solid var(--rule-soft); text-align: center; }
+  .gs-table td { font-size: 2.1mm; padding: 1mm; border: 0.2mm solid var(--rule-soft);
+                 vertical-align: middle; }
+  .gs-figure { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .gs-figure img { max-width: 100%; max-height: 100%; object-fit: contain; }
+</style>
+{% endmacro %}
+
+{# ---------- un foglio ---------- #}
+{% macro sheet(cart, oggetto='', foglio=1, total=1, banner=None, color='red', bleed=false, bare=false, body_top=None, body_bottom=None) %}
+{% set pal = {'red': 'var(--c-red)', 'blue': 'var(--c-blue)', 'green': 'var(--c-green)',
+              'grey': 'var(--c-grey)', 'orange': 'var(--c-orange)', 'purple': 'var(--c-purple)',
+              'dark': 'var(--gs-dark)'} %}
+{% set accent = pal[color] if color in pal else color %}
+{# top/bottom dell'area utile: sotto il banner (se presente), sopra il cartiglio #}
+{% set top = body_top if body_top else ('6.6mm' if bare else ('15.5mm' if banner else '10mm')) %}
+{% set bottom = body_bottom if body_bottom else ('0.6mm' if bare else '26.5mm') %}
+<div class="gs-sheet{{ ' bare' if bare else '' }}">
+
+  {# --- contenuto --- #}
+  <div class="gs-body {{ 'bleed' if (bleed or bare) else 'pad' }}"
+       style="top: {{ top }}; bottom: {{ bottom }};{{ ' left: 0.6mm; right: 0.6mm;' if bare else '' }}">
+    {{ caller() }}
+  </div>
+
+  {% if not bare %}
+  {# --- cornice a zone --- #}
+  <div class="gs-frame-out"></div>
+  <div class="gs-frame-in"></div>
+  {{ zones() }}
+  {% endif %}
+
+  {# --- banner --- #}
+  {% if banner %}
+  <div class="gs-banner" style="background: {{ accent }};">
+    <span class="t">{{ banner }}</span>
+    <span class="f">FOGLIO {{ foglio }} di {{ total }}</span>
+  </div>
+  {% endif %}
+
+  {% if not bare %}
+  {# --- cartiglio --- #}
+  <div class="gs-cart">
+    <div class="gs-cart-who">
+      <div><span class="k"><span class="gs-cart-label">Committente</span></span>
+           <span class="v gs-cart-value">{{ cart.committente | default('Grid Society S.r.l.') }}</span></div>
+      <div><span class="k"><span class="gs-cart-label">Progetto</span></span>
+           <span class="v gs-cart-value">{{ cart.progetto | default('—') }}</span></div>
+      <div><span class="k"><span class="gs-cart-label">Oggetto</span></span>
+           <span class="v gs-cart-value">{{ oggetto }}</span></div>
+    </div>
+    <div class="gs-cart-meta">
+      <div><span class="gs-cart-label">Scala</span><span class="gs-cart-value">{{ cart.scala | default('-') }}</span></div>
+      <div><span class="gs-cart-label">Formato</span><span class="gs-cart-value">{{ cart.formato | default('A4') }}</span></div>
+      <div><span class="gs-cart-label">Data</span><span class="gs-cart-value">{{ cart.data | default('—') }}</span></div>
+    </div>
+    <div class="gs-cart-logo">
+      {% if cart.logo_url is not defined or cart.logo_url %}
+        <img src="{{ cart.logo_url | default('/static/gridsociety/logo_scritta/GS Brand Color.svg') }}" alt="Grid Society">
+      {% else %}
+        <span class="brand">GRID SOCIETY</span>
+      {% endif %}
+    </div>
+    <div class="gs-cart-sign">
+      <div><span class="k">REDATTO</span><span>{{ cart.redatto | default('—') }}</span></div>
+      <div><span class="k">APPROVATO</span><span>{{ cart.approvato | default('—') }}</span></div>
+      <div class="em">
+        <span class="gs-cart-label">{{ cart.emissione | default('1a EMISSIONE') }}</span>
+        <span class="rev"><span class="gs-cart-label">Rev.</span>
+              <span class="gs-cart-value">{{ cart.rev | default('00') }}</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="gs-stripe"></div>
+
+  {# nessun banner: il numero di foglio va comunque riportato sopra il cartiglio #}
+  {% if not banner %}
+  <div style="position:absolute; right:10.5mm; bottom:26mm; z-index:6; font-size:2.1mm; color:var(--label);">
+    FOGLIO {{ foglio }} di {{ total }}
+  </div>
+  {% endif %}
+  {% endif %}
+</div>
+{% endmacro %}
+
+{# ---------- reticolo di zone: 1..8 in alto/basso, A..F ai lati ---------- #}
+{% macro zones(cols=8, rows=6) %}
+{% set left = 9 %}{% set right = 9 %}{% set top = 9 %}{% set bottom = 9 %}
+{% for c in range(cols) %}
+  <div class="gs-zone" style="left: calc({{ left }}mm + (100% - {{ left + right }}mm) * {{ c }} / {{ cols }});
+       width: calc((100% - {{ left + right }}mm) / {{ cols }}); top: 5mm; height: 4mm;">{{ c + 1 }}</div>
+  <div class="gs-zone" style="left: calc({{ left }}mm + (100% - {{ left + right }}mm) * {{ c }} / {{ cols }});
+       width: calc((100% - {{ left + right }}mm) / {{ cols }}); bottom: 5mm; height: 4mm;">{{ c + 1 }}</div>
+  {% if c > 0 %}
+  <div class="gs-zone-tick" style="left: calc({{ left }}mm + (100% - {{ left + right }}mm) * {{ c }} / {{ cols }});
+       width: 0.2mm; top: 5mm; height: 4mm;"></div>
+  <div class="gs-zone-tick" style="left: calc({{ left }}mm + (100% - {{ left + right }}mm) * {{ c }} / {{ cols }});
+       width: 0.2mm; bottom: 5mm; height: 4mm;"></div>
+  {% endif %}
+{% endfor %}
+{% for r in range(rows) %}
+  <div class="gs-zone" style="top: calc({{ top }}mm + (100% - {{ top + bottom }}mm) * {{ r }} / {{ rows }});
+       height: calc((100% - {{ top + bottom }}mm) / {{ rows }}); left: 5mm; width: 4mm;">{{ 'ABCDEF'[r] }}</div>
+  <div class="gs-zone" style="top: calc({{ top }}mm + (100% - {{ top + bottom }}mm) * {{ r }} / {{ rows }});
+       height: calc((100% - {{ top + bottom }}mm) / {{ rows }}); right: 5mm; width: 4mm;">{{ 'ABCDEF'[r] }}</div>
+  {% if r > 0 %}
+  <div class="gs-zone-tick" style="top: calc({{ top }}mm + (100% - {{ top + bottom }}mm) * {{ r }} / {{ rows }});
+       height: 0.2mm; left: 5mm; width: 4mm;"></div>
+  <div class="gs-zone-tick" style="top: calc({{ top }}mm + (100% - {{ top + bottom }}mm) * {{ r }} / {{ rows }});
+       height: 0.2mm; right: 5mm; width: 4mm;"></div>
+  {% endif %}
+{% endfor %}
+{% endmacro %}

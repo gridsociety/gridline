@@ -1,0 +1,29 @@
+{
+  "drawings/fascicolo-a4_portrait.html": {
+    "page_size": "210mm 297mm",
+    "orientation": "portrait",
+    "keywords": [
+      "TiSystem",
+      "DRAFT"
+    ],
+    "linked_documents": []
+  },
+  "drawings/fascicolo-a4_landscape.html": {
+    "page_size": "297mm 210mm",
+    "orientation": "landscape",
+    "keywords": [
+      "TiSystem",
+      "DRAFT"
+    ],
+    "linked_documents": []
+  },
+  "drawings/fascicolo-a3_landscape.html": {
+    "page_size": "420mm 297mm",
+    "orientation": "landscape",
+    "keywords": [
+      "TiSystem",
+      "DRAFT"
+    ],
+    "linked_documents": []
+  }
+}

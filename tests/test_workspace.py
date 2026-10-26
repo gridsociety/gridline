@@ -25,9 +25,9 @@ def test_new_never_overwrites(tmp_path):
     assert (p / "source/user.txt").read_text(encoding="utf-8") == "keep"
 
 
-def test_planned_backend_does_not_create_fake_project(tmp_path):
+def test_unknown_backend_does_not_create_fake_project(tmp_path):
     with pytest.raises(ValueError, match="not implemented"):
-        new(tmp_path / "bt", "bticino")
+        new(tmp_path / "bt", "unknown")
     assert not (tmp_path / "bt").exists()
 
 

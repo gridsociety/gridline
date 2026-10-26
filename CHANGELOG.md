@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased — BTicino
+
+- Schema di quadro da export nativi TiSystem: MCP locale, controlli, A3/A4 e Documentor.
+- Scelta professionale fra generale di integrazione, quadro con dati di dimensionamento e fascicolo coordinato.
+- Progettista configurabile, nessun timbro personale o dato cliente incluso.
+- Guida, input sintetici, test isolati e roadmap costruttiva/3D.
+- Acquisizione/calcolo TiSystem via browser; nessun API OEM o dimensionamento autonomo dichiarato.
+
+
 ## 0.1.0 — 2026-10-26
 
 - Primo flusso pubblico QElectroTech guidato dall'agente, derivato dallo standard 1.0.1.

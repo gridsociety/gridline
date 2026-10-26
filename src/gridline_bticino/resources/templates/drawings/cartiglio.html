@@ -1,0 +1,37 @@
+{# V4/P5 — adattatore locale, non pubblicato negli standard.
+   Riusa integralmente il componente aziendale; cambia solo la disposizione
+   della fascia per evitare testi compressi nei formati A4. Nessun simbolo. #}
+{% import "drawings/shared-cartiglio.html" as base %}
+{% macro page_setup(formato='a4_landscape') %}
+{{ base.page_setup(formato=formato) }}
+<style>.gs-banner { display:none; }</style>
+{% if formato == 'a4_landscape' %}
+<style>
+  .gs-cart-meta { grid-template-columns:.8fr .8fr 1.4fr; }
+  .gs-cart-who > div { grid-template-columns:22mm 1fr; }
+  .gs-banner .t { font-size:2.3mm; }
+</style>
+{% endif %}
+{% if formato == 'a4_portrait' %}
+<style>
+  .gs-cart { height: 27mm; grid-template-columns: 64% 36%; grid-template-rows: 15mm 12mm; }
+  .gs-cart-who { grid-column:1; grid-row:1; }
+  .gs-cart-sign { grid-column:2; grid-row:1; }
+  .gs-cart-meta { grid-column:1; grid-row:2; border-left:0!important; border-top:.2mm solid var(--rule); }
+  .gs-cart-logo { grid-column:2; grid-row:2; border-top:.2mm solid var(--rule); }
+  .gs-cart-logo img { height:9mm; }
+  .gs-cart-meta > div { gap:.6mm; }
+  .gs-cart-who > div { grid-template-columns:22mm 1fr; }
+  .gs-cart-sign .em { grid-template-columns:1fr 12mm; }
+  .gs-banner .t { font-size:2.3mm; }
+</style>
+{% endif %}
+{% endmacro %}
+{% macro sheet(cart, oggetto='', foglio=1, total=1) %}
+{% set content = caller() %}
+{% call base.sheet(cart, oggetto=oggetto ~ ' · ' ~ foglio ~ '/' ~ total, foglio=foglio, total=total,
+                   banner='layout-placeholder', color='dark', body_top='10mm',
+                   body_bottom=('39mm' if cart.portrait|default(false) else '27mm')) %}
+{{ content }}
+{% endcall %}
+{% endmacro %}
