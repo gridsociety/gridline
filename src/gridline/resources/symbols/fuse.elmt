@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition version="0.100.0" type="element" link_type="master" width="26" height="78" hotspot_x="13" hotspot_y="39">
+  <uuid uuid="{b0d170d0-2ae3-482b-a2f6-1367a2c3950a}" />
+  <names>
+    <name lang="ar">مصهر</name>
+    <name lang="ca">Fusible</name>
+    <name lang="cs">Pojistka</name>
+    <name lang="de">Sicherung</name>
+    <name lang="el">Ασφάλεια</name>
+    <name lang="en">Fuse</name>
+    <name lang="es">Fusible</name>
+    <name lang="fr">Fusible</name>
+    <name lang="it">Fusibile</name>
+    <name lang="nl">Zekering</name>
+    <name lang="pl">Bezpiecznik topikowy</name>
+    <name lang="pt">Fusível</name>
+    <name lang="ru">Предохранитель</name>
+  </names>
+  <kindInformations>
+    <kindInformation name="type">protection</kindInformation>
+  </kindInformations>
+  <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+GS P04: uniform scale 1.3; source 11_singlepole/200_fuses_protective_gears/10_fuses/fusible.elmt. No IEC certification asserted.</informations>
+  <description>
+    <line x1="0" y1="-26" x2="0" y2="26" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="2.6" y1="13" x2="2.6" y2="-13" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="-2.6" y1="13" x2="2.6" y2="13" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="2.6" y1="-13" x2="-2.6" y2="-13" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="-2.6" y1="-13" x2="-2.6" y2="13" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <terminal uuid="{108e9800-cbc2-4a46-af6f-f0e74436e319}" name="" x="0" y="-27.3" orientation="n" type="Generic" />
+    <terminal uuid="{655cd47e-bd82-45ac-bd14-0341377404af}" name="" x="0" y="27.3" orientation="s" type="Generic" />
+  </description>
+</definition>

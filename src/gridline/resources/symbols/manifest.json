@@ -1,0 +1,566 @@
+[
+  {
+    "file": "bat.elmt",
+    "sha256": "6e22700852645c449b90b78005424b027b19284925dd3fd32306cfabe276be83",
+    "names": [
+      "بطارية بخليتين",
+      "Bateria 2 elements",
+      "Baterie 2 články",
+      "Batterie 2 Elemente",
+      "Μπαταρία (2 στοιχεία σε σειρά)",
+      "Battery 2 elements",
+      "Bateria 2 elementos en serie",
+      "Pile 2 éléments",
+      "Batteria (2 elementi, serie)",
+      "batterij 2 elementen DC",
+      "Batterij 2 elementen DC",
+      "Bateria ogniw elektrochemicznych"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1.3; source 10_allpole/392_generators_sources/30_batteries/pile_2_elements.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{777eed6f-b1a9-4abf-ad7f-8d0b60634226}",
+        "name": "",
+        "x": "26",
+        "y": "0",
+        "orientation": "e",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{41381867-3ff6-4f79-8492-efe174914b3f}",
+        "name": "",
+        "x": "-26",
+        "y": "0",
+        "orientation": "w",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "cb.elmt",
+    "sha256": "f2dbb256fa0f9018db0374e7da7ab09773cb5543bcdf2f751bfd5710470669c1",
+    "names": [
+      "قاطع",
+      "Interruptor",
+      "Vypínač",
+      "Lastschalter 1P",
+      "Circuit-breaker",
+      "Disyuntor",
+      "Disjoncteur",
+      "Sezionatore 1P",
+      "Lastscheider 1",
+      "Wyłącznik",
+      "Disjuntor",
+      "Выключатель"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 2; source 11_singlepole/200_fuses_protective_gears/11_circuit_breakers/disjoncteur1.elmt. No IEC certification asserted.\nP05: segno di apertura automatica da /Applications/QElectroTech.app/Contents/Resources/elements/10_electric/91_en_60617/en_60617_07/en_60617_07_01/en_60617_07_01_05.elmt",
+    "terminals": [
+      {
+        "uuid": "{4e7a9570-9e8c-479a-a93e-885e5eb61fbd}",
+        "name": "",
+        "x": "0",
+        "y": "-40",
+        "orientation": "n",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{1a054f15-da3d-40a8-af9b-bf78bfe06a88}",
+        "name": "",
+        "x": "0",
+        "y": "40",
+        "orientation": "s",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "ct.elmt",
+    "sha256": "1e936704f2c0c280dbab41066ca2eb5b5baad344fb3540f2046199d28493ef88",
+    "names": [
+      "Transformador de corrent, transformador d'impulsos",
+      "Proudový transformátor, pulzní transformátor",
+      "Stromwandler, Impulswandler",
+      "Current transformer, pulse transformer",
+      "Transformateur de courant, transformateur d'impulsion",
+      "Trasformatore di corrente o d'impulso",
+      "Stroomtrafo",
+      "Przekładnik (forma 2)"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1.3; source 11_singlepole/330_transformers_power_supplies/20_current_tansformers/transformateur_courant1.elmt.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{dc778cea-b7d5-426d-8789-ee2e525bedbe}",
+        "name": "",
+        "x": "0",
+        "y": "-26",
+        "orientation": "n",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{9436370c-72db-4268-a152-9aab8415e4a4}",
+        "name": "",
+        "x": "0",
+        "y": "26",
+        "orientation": "s",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{16ac60b5-3e94-43f4-83f9-d5c201f98d0b}",
+        "name": "",
+        "x": "26",
+        "y": "0",
+        "orientation": "e",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "earth.elmt",
+    "sha256": "c84277f4da127d864a63b70fe803e66ce81073fce6d83ca5d6de05db72ed2272",
+    "names": [
+      "تأريض",
+      "Terra",
+      "Uzemnění",
+      "Erde",
+      "Γείωση",
+      "Ground",
+      "Tierra",
+      "Terre",
+      "Földelő",
+      "Terra",
+      "Aarde",
+      "Uziemienie",
+      "Terra",
+      "Земля"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1.3; source 10_allpole/110_network_supplies/terre.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{f52570dd-b18e-012e-919f-8d749298ae42}",
+        "name": "PE",
+        "x": "0",
+        "y": "-14.3",
+        "orientation": "n",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "fuse.elmt",
+    "sha256": "4d03a803607b5d21f13370cd09da7d2e0670c8c27c031ae76912cc94d2cdab07",
+    "names": [
+      "مصهر",
+      "Fusible",
+      "Pojistka",
+      "Sicherung",
+      "Ασφάλεια",
+      "Fuse",
+      "Fusible",
+      "Fusible",
+      "Fusibile",
+      "Zekering",
+      "Bezpiecznik topikowy",
+      "Fusível",
+      "Предохранитель"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1.3; source 11_singlepole/200_fuses_protective_gears/10_fuses/fusible.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{108e9800-cbc2-4a46-af6f-f0e74436e319}",
+        "name": "",
+        "x": "0",
+        "y": "-27.3",
+        "orientation": "n",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{655cd47e-bd82-45ac-bd14-0341377404af}",
+        "name": "",
+        "x": "0",
+        "y": "27.3",
+        "orientation": "s",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "inv.elmt",
+    "sha256": "5d52ab84f86f8568f03763cef02af0d4c732c44e69a12b63c27bb43fb57b056a",
+    "names": [
+      "Inversor",
+      "Invertor, střídač, převodník(měnič)\nstejnosměrného proudu na střídavý",
+      "Wechselrichter",
+      "Inverter",
+      "Onduleur"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1.3; source 91_en_60617/en_60617_06/en_60617_06_14/en_60617_06_14_05.elmt. No IEC certification asserted.",
+    "terminals": []
+  },
+  {
+    "file": "j3.elmt",
+    "sha256": "0595d8cf4c9ce6402e5b7dacfbb9b8f98760c8e19ab92b5c2da67465c025dab5",
+    "names": [
+      "Cruïlla que no interromp el conductor",
+      "Napojení vodiče nepřerušující vodič",
+      "Abzweigung, bei der der Leiter nicht\nunterbrochen werden darf",
+      "Junction not interrupting the conductor",
+      "Prise de conducteur n'interrompant pas le\nconducteur"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1; source 91_en_60617/en_60617_03/en_60617_03_02/en_60617_03_02_16.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{993b1e31-a7ce-4cf0-a184-2b4ef34410d0}",
+        "name": "",
+        "x": "-20",
+        "y": "0",
+        "orientation": "w",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{dd4c0620-0679-4086-835d-d4942e526fda}",
+        "name": "",
+        "x": "20",
+        "y": "0",
+        "orientation": "e",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{96c084b8-0d3f-456a-8061-8c8187440c6a}",
+        "name": "",
+        "x": "0",
+        "y": "20",
+        "orientation": "s",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "j4.elmt",
+    "sha256": "a62de80963806ebf198b9068b3e1bfa65cb2b96baa4840c071bb2432a5fa726a",
+    "names": [
+      "Doble unió de conductors",
+      "Dvojnásobné spojení T",
+      "Doppelabzweig von Leitern",
+      "Double junction of conductors",
+      "Double liaison en T"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1; source 91_en_60617/en_60617_03/en_60617_03_02/en_60617_03_02_07.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{ae0bfeb7-1246-416b-8a0f-f020272f270c}",
+        "name": "",
+        "x": "0",
+        "y": "-40",
+        "orientation": "n",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{c8161911-7b1b-44e2-a209-7219433a5330}",
+        "name": "",
+        "x": "0",
+        "y": "0",
+        "orientation": "s",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{8a011b1b-7c2d-422d-9679-2c6989b98ef5}",
+        "name": "",
+        "x": "20",
+        "y": "-20",
+        "orientation": "e",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{53f3e7ea-1b05-4745-8017-a8f31a54acaa}",
+        "name": "",
+        "x": "-20",
+        "y": "-20",
+        "orientation": "w",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "meter.elmt",
+    "sha256": "96df854ebb10b88bdfb0e13c1c701b266bf78be39926b3d39d4e5c73807afcd1",
+    "names": [
+      "عدّاد طاقة",
+      "Comptador d'energia",
+      "Elektroměr",
+      "Energiezähler",
+      "Μετρητής ενέργειας, Κιλοβατώρες (KWh)",
+      "Energy meter",
+      "Compteur d’énergie",
+      "Misuratore di Kwh",
+      "Energiemeter",
+      "Licznik energii"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1.3; source 11_singlepole/500_home_installation/40_meters/compteur_energie.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{9147321c-fa93-4da0-b766-ac8c3d05d7ad}",
+        "name": "",
+        "x": "26",
+        "y": "52",
+        "orientation": "s",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{fec67a3b-1ec3-4f62-ba93-5eedb03918bd}",
+        "name": "",
+        "x": "0",
+        "y": "52",
+        "orientation": "s",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "pcs.elmt",
+    "sha256": "4fe942dd5efb8c1f175ffda8472e1b865dd5b90fdb1829af64fa6d9ee174705f",
+    "names": [
+      "Rectificador/inversor",
+      "Usměrňovač/invertor (střídač)",
+      "Gleichrichter/Wechselrichter (umschaltbar)",
+      "Rectifier/inverter",
+      "Redresseur/onduleur"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1.3; source 91_en_60617/en_60617_06/en_60617_06_14/en_60617_06_14_06.elmt. No IEC certification asserted.",
+    "terminals": []
+  },
+  {
+    "file": "port.elmt",
+    "sha256": "544715f851f274b9bbf58c9d71d63c1ac88e84a43c308fe2c3fd3fb6c1ba4ddf",
+    "names": [
+      "طرف نهائي",
+      "Born final",
+      "Koncová svorka",
+      "Endklemme",
+      "Terminal block",
+      "Punto de unión",
+      "Borne finale",
+      "Sorkapocs",
+      "Terminale di fine",
+      "Klem eind",
+      "Zacisk",
+      "Terminal de fim",
+      "Клеммник"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1; source 10_allpole/130_terminals_terminal_strips/borne_finale.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{60dfbe44-503d-42ca-b827-469296468240}",
+        "name": "",
+        "x": "0",
+        "y": "-10",
+        "orientation": "n",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "pv.elmt",
+    "sha256": "a208a7f2a0e4eebe5629e1ec1073db668eb04270a954664f725a469d5b1faa63",
+    "names": [
+      "Generador fotovoltaic",
+      "Fotonapěťový generátor",
+      "Photoelektrischer Generator",
+      "Photovoltaic generator",
+      "Générateur photovoltaïque"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1.3; source 91_en_60617/en_60617_06/en_60617_06_18/en_60617_06_18_06.elmt. No IEC certification asserted.",
+    "terminals": []
+  },
+  {
+    "file": "qe.elmt",
+    "sha256": "7a21f884bbcf8104af0c5ac4b11389c685103efc3847a6174547e4c73855b9bf",
+    "names": [
+      "مفتاح-عازل أرضي",
+      "Interruptor seccionador de terra",
+      "Uzemňovač",
+      "Erdungsschalter",
+      "Διακόπτης αποσύνδεσης γείωσης",
+      "Ground switch disconnector",
+      "Interrupteur-sectionneur de terre",
+      "Interruttore-sezionatore di terra",
+      "Aardeschakelaar",
+      "Uziemnik",
+      "Interruptor-seccionador de terra"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 2; source 10_allpole/450_high_voltage/interrupteur_sectionneur_de_terre.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{1e02ffc7-2729-447b-8325-f699d72e8ecd}",
+        "name": "",
+        "x": "0",
+        "y": "-40",
+        "orientation": "n",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "qs.elmt",
+    "sha256": "2e54968e74208b39fd98e40615d7b69c8410a4f106ad9493943b3dbefe6dccdc",
+    "names": [
+      "مفتاح عزل",
+      "trencar aïllador",
+      "Odpojovač",
+      "Lasttrenner 1-polig",
+      "break isolator",
+      "Seccionador",
+      "Sectionneur",
+      "Sezionatore 1P",
+      "Lastschakelaar",
+      "Odłącznik",
+      "Seccionador",
+      "Разъеденитель"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 2; source 11_singlepole/200_fuses_protective_gears/20_disconnecting_switches/sectionneur1.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{0893b585-f622-4b91-8123-43d2b66bae28}",
+        "name": "",
+        "x": "0",
+        "y": "-42",
+        "orientation": "n",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{0a3bea67-3612-4d4e-8c3b-9208004f10fa}",
+        "name": "",
+        "x": "0",
+        "y": "42",
+        "orientation": "s",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "relay.elmt",
+    "sha256": "2e70ba3fea553836031e15245c0f38411d7e1e7b67cdd21cfa0160b1bcb17c24",
+    "names": [
+      "relé de mesura;",
+      "Měřicí relé, zařízení odvozené z měřicích relé",
+      "Meßrelais und verwandte Einrichtungen",
+      "Measuring relay; Device related to a measuring relay",
+      "Relais de mesure"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1.3; source 91_en_60617/en_60617_07/en_60617_07_16/en_60617_07_16_01.elmt. No IEC certification asserted.",
+    "terminals": []
+  },
+  {
+    "file": "spd.elmt",
+    "sha256": "4214f7626ad47fd14b3176bba0bbe6079bc0ac0c07024d3442cd001a336f770e",
+    "names": [
+      "Protector de sobretensions",
+      "Bleskojistka, ochrana proti přepětí",
+      "Blitzschutz",
+      "Surge protector",
+      "Protección contra descargas",
+      "Parafoudre",
+      "Túlfeszültség védő",
+      "Scaricatore",
+      "Overspanning beveiliging",
+      "Ogranicznik przepięć"
+    ],
+    "information": "EN 60617: 07-22-03\nGS P04: uniform scale 1.3; source 10_allpole/200_fuses_protective_gears/90_overvoltage_protections/parafoudre.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{5ce72bfd-208f-46ba-b35c-cc85f14d6847}",
+        "name": "",
+        "x": "0",
+        "y": "-27.3",
+        "orientation": "n",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{737ad9f1-550b-40e3-9856-5ff648aa0c3e}",
+        "name": "",
+        "x": "0",
+        "y": "27.3",
+        "orientation": "s",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "tr.elmt",
+    "sha256": "4ab8d98ac83e36144ee55a8836878a5e87beb739fa48a45fbcdd5ab5763d6abc",
+    "names": [
+      "Transformador trifàsic Yd",
+      "Třífázový transformátor Yd",
+      "Transformator Stern/Dreieck",
+      "Τριφασικός μετασχηματιστής, αστέρας τρίγωνο",
+      "Three-phase transformer Yd",
+      "Transformador trifásico Yd",
+      "Transformateur triphasé etoile triangle",
+      "Trasformatore 3F Yd (forma 1)",
+      "driefasen transformator Ster driehoek",
+      "Transformator tyrójfazowy Yd (forma 1)"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1.3; source 11_singlepole/330_transformers_power_supplies/10_transformers/transformator_3f_gt_1.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{89297efe-f7ef-49fa-a610-22c5c64062d3}",
+        "name": "",
+        "x": "0",
+        "y": "-52",
+        "orientation": "n",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{7010461f-7b42-4b4c-9324-f7f07284c473}",
+        "name": "",
+        "x": "0",
+        "y": "52",
+        "orientation": "s",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "tv.elmt",
+    "sha256": "8034a6ab60493c05cbbdeac20597caa56f4e1173264f13fff7e4b1a090722016",
+    "names": [
+      "Transformador de tensió",
+      "Transformátor napětí",
+      "Spannungswandler",
+      "Voltage transformer",
+      "Transformateur de tension"
+    ],
+    "information": "Author: The QElectroTech team\nLicense: see http://qelectrotech.org/wiki/doc/elements_license\nGS P04: uniform scale 1.3; source 91_en_60617/en_60617_06/en_60617_06_13/en_60617_06_13_01A.elmt. No IEC certification asserted.",
+    "terminals": [
+      {
+        "uuid": "{66f2bb55-6ed8-4ce5-8544-ae32f37f02c8}",
+        "name": "",
+        "x": "0",
+        "y": "92.3",
+        "orientation": "s",
+        "type": "Generic"
+      },
+      {
+        "uuid": "{2281702f-cc4b-4fe8-bfcd-f9d7aab85896}",
+        "name": "",
+        "x": "0",
+        "y": "-52",
+        "orientation": "n",
+        "type": "Generic"
+      }
+    ]
+  },
+  {
+    "file": "mt.elmt",
+    "source": "10_electric/11_singlepole/200_fuses_protective_gears/12_magneto_thermal_circuit_breakers/disjoncteur_magneto-thermique_1.elmt",
+    "sha256": "f30c3af0b546f956d0d4358cb9e91acb5b7c72ded19c2e2670fa8e5cc27b0643",
+    "information": "Unmodified QElectroTech collection symbol. Replaces restricted historical schematic adaptation.",
+    "license": "QET-Elements.LICENSE"
+  },
+  {
+    "file": "rcbo.elmt",
+    "source": "10_electric/11_singlepole/200_fuses_protective_gears/50_residual_current_circuit_breaker/disjoncteur_differentiel_magnetothermique.elmt",
+    "sha256": "1462c8ee23e597c6155a6fb757e7021f38cf29592f551e10295b420d4ce0c596",
+    "information": "Unmodified QElectroTech collection symbol. Replaces restricted historical schematic adaptation.",
+    "license": "QET-Elements.LICENSE"
+  }
+]

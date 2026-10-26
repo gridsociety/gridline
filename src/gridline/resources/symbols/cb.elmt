@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition version="0.100.0" type="element" link_type="master" width="40" height="120" hotspot_x="18" hotspot_y="60">
+  <uuid uuid="{2c3fd78d-7ae8-469f-9778-7c55c2d8e06a}" />
+  <names>
+    <name lang="ar">قاطع</name>
+    <name lang="ca">Interruptor</name>
+    <name lang="cs">Vypínač</name>
+    <name lang="de">Lastschalter 1P</name>
+    <name lang="en">Circuit-breaker</name>
+    <name lang="es">Disyuntor</name>
+    <name lang="fr">Disjoncteur</name>
+    <name lang="it">Sezionatore 1P</name>
+    <name lang="nl">Lastscheider 1</name>
+    <name lang="pl">Wyłącznik</name>
+    <name lang="pt">Disjuntor</name>
+    <name lang="ru">Выключатель</name>
+  </names>
+  <kindInformations>
+    <kindInformation name="type">protection</kindInformation>
+  </kindInformations>
+  <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+GS P04: uniform scale 2; source 11_singlepole/200_fuses_protective_gears/11_circuit_breakers/disjoncteur1.elmt. No IEC certification asserted.
+P05: segno di apertura automatica da /Applications/QElectroTech.app/Contents/Resources/elements/10_electric/91_en_60617/en_60617_07/en_60617_07_01/en_60617_07_01_05.elmt</informations>
+  <description>
+    <polygon x1="0" y1="40" x2="0" y2="20" x3="-10" y3="-20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="0" y1="-40" x2="0" y2="-20" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="4" y1="-16" x2="-4" y2="-24" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="4" y1="-24" x2="-4" y2="-16" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <terminal uuid="{4e7a9570-9e8c-479a-a93e-885e5eb61fbd}" name="" x="0" y="-40" orientation="n" type="Generic" />
+    <terminal uuid="{1a054f15-da3d-40a8-af9b-bf78bfe06a88}" name="" x="0" y="40" orientation="s" type="Generic" />
+    <polygon x1="-11" y1="-3" x2="-4" y2="-5" x3="-2" y3="2" x4="-9" y4="4" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+  </description>
+</definition>

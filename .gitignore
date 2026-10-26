@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+.env
+.env.*
+!.env.example
+.mcp.json
+*.qet.bak-*
+workspaces/
+dist/
+build/
+*.egg-info/
+.coverage

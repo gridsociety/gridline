@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition version="0.100.0" type="element" link_type="simple" width="65" height="65" hotspot_x="25" hotspot_y="3">
+  <uuid uuid="{5a70701d-9b9a-4795-8826-f6b39db81194}" />
+  <names>
+    <name lang="ar">عدّاد طاقة</name>
+    <name lang="ca">Comptador d'energia</name>
+    <name lang="cs">Elektroměr</name>
+    <name lang="de">Energiezähler</name>
+    <name lang="el">Μετρητής ενέργειας, Κιλοβατώρες (KWh)</name>
+    <name lang="en">Energy meter</name>
+    <name lang="fr">Compteur d’énergie</name>
+    <name lang="it">Misuratore di Kwh</name>
+    <name lang="nl">Energiemeter</name>
+    <name lang="pl">Licznik energii</name>
+  </names>
+  <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+GS P04: uniform scale 1.3; source 11_singlepole/500_home_installation/40_meters/compteur_energie.elmt. No IEC certification asserted.</informations>
+  <description>
+    <line x1="-7.8" y1="13" x2="33.8" y2="13" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <rect x="-7.8" y="0" width="41.6" height="52" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <text text="kWh" x="-5.2" y="39" rotation="0" font="Liberation Sans,13,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+    <terminal uuid="{9147321c-fa93-4da0-b766-ac8c3d05d7ad}" name="" x="26" y="52" orientation="s" type="Generic" />
+    <terminal uuid="{fec67a3b-1ec3-4f62-ba93-5eedb03918bd}" name="" x="0" y="52" orientation="s" type="Generic" />
+  </description>
+</definition>

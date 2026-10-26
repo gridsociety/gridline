@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition version="0.100.0" type="element" link_type="simple" width="52" height="78" hotspot_x="15" hotspot_y="39">
+  <uuid uuid="{1ef943dd-14f5-47f7-be35-f5f20f5b7b84}" />
+  <names>
+    <name lang="ca">Transformador de corrent, transformador d'impulsos</name>
+    <name lang="cs">Proudový transformátor, pulzní transformátor</name>
+    <name lang="de">Stromwandler, Impulswandler</name>
+    <name lang="en">Current transformer, pulse transformer</name>
+    <name lang="fr">Transformateur de courant, transformateur d'impulsion</name>
+    <name lang="it">Trasformatore di corrente o d'impulso</name>
+    <name lang="nl">Stroomtrafo</name>
+    <name lang="pl">Przekładnik (forma 2)</name>
+  </names>
+  <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+GS P04: uniform scale 1.3; source 11_singlepole/330_transformers_power_supplies/20_current_tansformers/transformateur_courant1.elmt.elmt. No IEC certification asserted.</informations>
+  <description>
+    <line x1="13" y1="6.5" x2="19.5" y2="-6.5" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <line x1="15.6" y1="6.5" x2="22.1" y2="-6.5" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <ellipse x="-10.4" y="-10.4" width="20.8" height="20.8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <line x1="0" y1="-26" x2="0" y2="26" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="10.4" y1="0" x2="26" y2="0" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <terminal uuid="{dc778cea-b7d5-426d-8789-ee2e525bedbe}" name="" x="0" y="-26" orientation="n" type="Generic" />
+    <terminal uuid="{9436370c-72db-4268-a152-9aab8415e4a4}" name="" x="0" y="26" orientation="s" type="Generic" />
+    <terminal uuid="{16ac60b5-3e94-43f4-83f9-d5c201f98d0b}" name="" x="26" y="0" orientation="e" type="Generic" />
+  </description>
+</definition>

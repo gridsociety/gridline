@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition version="0.100.0" type="element" link_type="simple" width="52" height="130" hotspot_x="26" hotspot_y="65">
+  <uuid uuid="{51c80fc1-b2e0-4926-81a6-47e2d95081bc}" />
+  <names>
+    <name lang="ca">Transformador trifàsic Yd</name>
+    <name lang="cs">Třífázový transformátor Yd</name>
+    <name lang="de">Transformator Stern/Dreieck</name>
+    <name lang="el">Τριφασικός μετασχηματιστής, αστέρας τρίγωνο</name>
+    <name lang="en">Three-phase transformer Yd</name>
+    <name lang="es">Transformador trifásico Yd</name>
+    <name lang="fr">Transformateur triphasé etoile triangle</name>
+    <name lang="it">Trasformatore 3F Yd (forma 1)</name>
+    <name lang="nl">driefasen transformator Ster driehoek</name>
+    <name lang="pl">Transformator tyrójfazowy Yd (forma 1)</name>
+  </names>
+  <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+GS P04: uniform scale 1.3; source 11_singlepole/330_transformers_power_supplies/10_transformers/transformator_3f_gt_1.elmt. No IEC certification asserted.</informations>
+  <description>
+    <polygon x1="-5.2" y1="-20.8" x2="0" y2="-16.9" x3="5.2" y3="-20.8" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="-6.5" y1="45.5" x2="6.5" y2="40.3" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <line x1="-6.5" y1="-35.1" x2="6.5" y2="-40.3" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <ellipse x="-19.5" y="-32.5" width="39" height="39" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <line x1="-6.5" y1="40.3" x2="6.5" y2="35.1" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <line x1="-6.5" y1="-40.3" x2="6.5" y2="-45.5" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <line x1="0" y1="-16.9" x2="0" y2="-11.7" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <ellipse x="-19.5" y="-6.5" width="39" height="39" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <line x1="-6.5" y1="-37.7" x2="6.5" y2="-42.9" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <polygon x1="-5.2" y1="20.8" x2="5.2" y2="20.8" x3="0" y3="11.7" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+    <line x1="0" y1="-52" x2="0" y2="-32.5" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="-6.5" y1="42.9" x2="6.5" y2="37.7" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <line x1="0" y1="32.5" x2="0" y2="52" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <terminal uuid="{89297efe-f7ef-49fa-a610-22c5c64062d3}" name="" x="0" y="-52" orientation="n" type="Generic" />
+    <terminal uuid="{7010461f-7b42-4b4c-9324-f7f07284c473}" name="" x="0" y="52" orientation="s" type="Generic" />
+  </description>
+</definition>

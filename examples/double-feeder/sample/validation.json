@@ -1,0 +1,15 @@
+{
+  "generated_with": "Gridline 0.1.0",
+  "documentor_commit": "22e215a70209ca48aa3a94c9e9a63341b143aa49",
+  "synthetic_example": true,
+  "qet_xml_verified": true,
+  "mcp_stdio_verified": true,
+  "pdf_visual_verified": true,
+  "native_qet_visual_verified": false,
+  "electrical_compliance_verified": false,
+  "files": {
+    "double-feeder.qet": "908bbbcc574fba2e110cf0d8c21dce2f3cee4681144c86750a36a129dcc64d54",
+    "double-feeder_DRAFT.pdf": "b748395973332c0d71ecdaa89d86071300f99f60011528e2f674a3e0ccbd7f48",
+    "preview.png": "be81ed7de7300c5d7fef0e0e930a2839ab0321e175228ead92c75a817586fbfe"
+  }
+}

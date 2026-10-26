@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project title="Gridline — doppio montante didattico" version="0.100.0">
+    <properties>
+        <property show="1" name="saveddate">26/10/2026</property>
+        <property show="1" name="savedtime">16:51</property>
+    </properties>
+    <newdiagrams>
+        <border rowsize="80" rows="9" displaycols="true" cols="18" colsize="60" displayrows="true" />
+        <inset titleblocktemplate="default" titleblocktemplateCollection="common" displayAt="bottom" folio="%id" indexrev="" plant="" date="null" filename="" author="Grid Society" locmach="" title="" version="" auto_page_num="" />
+        <conductors x="0" y="0" condsize="1" cable="" onetextperfolio="1" vertical-alignment="AlignLeft" horizrotatetext="0" bicolor="false" bus="" dash-size="2" numsize="7" horizontal-alignment="AlignTop" function="" conductor_color="" conductor_section="" text_color="#000000" color2="#000000" tension_protocol="" displaytext="1" formula="" vertirotatetext="270" freezeLabel="false" num="" type="multi" />
+        <report label="%f-%l%c" />
+        <xrefs />
+        <conductors_autonums freeze_new_conductors="false" current_autonum="" />
+        <folio_autonums />
+        <element_autonums freeze_new_elements="false" current_autonum="" />
+    </newdiagrams>
+    <diagram freezeNewElement="false" freezeNewConductor="false" titleblocktemplate="default" titleblocktemplateCollection="common" cols="18" rows="9" colsize="60" rowsize="80" displaycols="true" displayrows="true" displayAt="bottom" folio="%id" version="0.100.0" indexrev="" date="20261026" author="Grid Society" height="740" title="Schema unifilare" filename="" order="1" locmach="" plant="" auto_page_num="" uuid="{1dc89d5f-b877-4487-a6fb-f24069a5a0ac}">
+        <properties />
+        <defaultconductor x="0" y="0" condsize="1" cable="" onetextperfolio="1" vertical-alignment="AlignLeft" horizrotatetext="0" bicolor="false" bus="" dash-size="2" numsize="7" horizontal-alignment="AlignTop" function="" conductor_color="" conductor_section="" text_color="#000000" color2="#000000" tension_protocol="" displaytext="1" formula="" vertirotatetext="270" freezeLabel="false" num="" type="multi" />
+        <elements>
+            <element freezeLabel="false" z="10" x="500" y="100" prefix="QS" type="embed://import/2e54968e74208b39/qs.elmt" orientation="0" uuid="{8a91a549-9236-4e09-babc-c651b28e3435}">
+                <sequentialNumbers>
+                    <unit />
+                    <unitFolio />
+                    <ten />
+                    <tenFolio />
+                    <hundred />
+                    <hundredFolio />
+                </sequentialNumbers>
+                <terminals>
+                    <terminal x="0" y="-38" name="" orientation="0" id="0" number="_" nameHidden="0" />
+                    <terminal x="0" y="38" name="" orientation="2" id="1" number="_" nameHidden="0" />
+                </terminals>
+                <inputs />
+                <elementInformations>
+                    <elementInformation show="1" name="label">QS.ARRIVO</elementInformation>
+                </elementInformations>
+                <dynamic_texts>
+                    <dynamic_elmt_text rotation="0" x="28" y="0" Halignment="AlignLeft" Valignment="AlignTop" frame="false" keep_visual_rotation="true" text_width="-1" uuid="{ba39c3f3-fad3-4d15-b6e8-a182efe831de}" text_from="ElementInfo" font="Sans Serif,9,-1,5,50,0,0,0,0,0,Condensed">
+                        <text>QS.ARRIVO</text>
+                        <info_name>label</info_name>
+                    </dynamic_elmt_text>
+                </dynamic_texts>
+                <texts_groups />
+            </element>
+            <element freezeLabel="false" z="10" x="500" y="240" prefix="" type="embed://import/a62de80963806ebf/j4.elmt" orientation="0" uuid="{d75be30a-ecba-4b0e-a5ec-af19bf435f74}">
+                <sequentialNumbers>
+                    <unit />
+                    <unitFolio />
+                    <ten />
+                    <tenFolio />
+                    <hundred />
+                    <hundredFolio />
+                </sequentialNumbers>
+                <terminals>
+                    <terminal x="0" y="-36" name="" orientation="0" id="2" number="_" nameHidden="0" />
+                    <terminal x="0" y="-4" name="" orientation="2" id="3" number="_" nameHidden="0" />
+                    <terminal x="16" y="-20" name="" orientation="1" id="4" number="_" nameHidden="0" />
+                    <terminal x="-16" y="-20" name="" orientation="3" id="5" number="_" nameHidden="0" />
+                </terminals>
+                <inputs />
+                <elementInformations>
+                    <elementInformation show="1" name="label" />
+                </elementInformations>
+                <dynamic_texts />
+                <texts_groups />
+            </element>
+            <element freezeLabel="false" z="10" x="300" y="240" prefix="" type="embed://import/a62de80963806ebf/j4.elmt" orientation="0" uuid="{5a4b8454-cc54-43b6-ba4b-25ad5844e957}">
+                <sequentialNumbers>
+                    <unit />
+                    <unitFolio />
+                    <ten />
+                    <tenFolio />
+                    <hundred />
+                    <hundredFolio />
+                </sequentialNumbers>
+                <terminals>
+                    <terminal x="0" y="-36" name="" orientation="0" id="6" number="_" nameHidden="0" />
+                    <terminal x="0" y="-4" name="" orientation="2" id="7" number="_" nameHidden="0" />
+                    <terminal x="16" y="-20" name="" orientation="1" id="8" number="_" nameHidden="0" />
+                    <terminal x="-16" y="-20" name="" orientation="3" id="9" number="_" nameHidden="0" />
+                </terminals>
+                <inputs />
+                <elementInformations>
+                    <elementInformation show="1" name="label" />
+                </elementInformations>
+                <dynamic_texts />
+                <texts_groups />
+            </element>
+            <element freezeLabel="false" z="10" x="700" y="240" prefix="" type="embed://import/a62de80963806ebf/j4.elmt" orientation="0" uuid="{ea68dfd5-dd81-46da-b68c-4aa84e82aedf}">
+                <sequentialNumbers>
+                    <unit />
+                    <unitFolio />
+                    <ten />
+                    <tenFolio />
+                    <hundred />
+                    <hundredFolio />
+                </sequentialNumbers>
+                <terminals>
+                    <terminal x="0" y="-36" name="" orientation="0" id="10" number="_" nameHidden="0" />
+                    <terminal x="0" y="-4" name="" orientation="2" id="11" number="_" nameHidden="0" />
+                    <terminal x="16" y="-20" name="" orientation="1" id="12" number="_" nameHidden="0" />
+                    <terminal x="-16" y="-20" name="" orientation="3" id="13" number="_" nameHidden="0" />
+                </terminals>
+                <inputs />
+                <elementInformations>
+                    <elementInformation show="1" name="label" />
+                </elementInformations>
+                <dynamic_texts />
+                <texts_groups />
+            </element>
+            <element freezeLabel="false" z="10" x="300" y="380" prefix="DG" type="embed://import/f2dbb256fa0f9018/cb.elmt" orientation="0" uuid="{103dfd10-f6ea-4e71-95fe-9d975a538a76}">
+                <sequentialNumbers>
+                    <unit />
+                    <unitFolio />
+                    <ten />
+                    <tenFolio />
+                    <hundred />
+                    <hundredFolio />
+                </sequentialNumbers>
+                <terminals>
+                    <terminal x="0" y="-36" name="" orientation="0" id="14" number="_" nameHidden="0" />
+                    <terminal x="0" y="36" name="" orientation="2" id="15" number="_" nameHidden="0" />
+                </terminals>
+                <inputs />
+                <elementInformations>
+                    <elementInformation show="1" name="label">DG.CLIENTE</elementInformation>
+                </elementInformations>
+                <dynamic_texts>
+                    <dynamic_elmt_text rotation="0" x="30" y="0" Halignment="AlignLeft" Valignment="AlignTop" frame="false" keep_visual_rotation="true" text_width="-1" uuid="{2fa52a69-ed8b-4795-a5c4-43b2a44a71d4}" text_from="ElementInfo" font="Sans Serif,9,-1,5,50,0,0,0,0,0,Condensed">
+                        <text>DG.CLIENTE</text>
+                        <info_name>label</info_name>
+                    </dynamic_elmt_text>
+                </dynamic_texts>
+                <texts_groups />
+            </element>
+            <element freezeLabel="false" z="10" x="700" y="380" prefix="DG" type="embed://import/f2dbb256fa0f9018/cb.elmt" orientation="0" uuid="{77ef1e57-9631-407f-99de-b69e44c56cdd}">
+                <sequentialNumbers>
+                    <unit />
+                    <unitFolio />
+                    <ten />
+                    <tenFolio />
+                    <hundred />
+                    <hundredFolio />
+                </sequentialNumbers>
+                <terminals>
+                    <terminal x="0" y="-36" name="" orientation="0" id="16" number="_" nameHidden="0" />
+                    <terminal x="0" y="36" name="" orientation="2" id="17" number="_" nameHidden="0" />
+                </terminals>
+                <inputs />
+                <elementInformations>
+                    <elementInformation show="1" name="label">DG.BESS</elementInformation>
+                </elementInformations>
+                <dynamic_texts>
+                    <dynamic_elmt_text rotation="0" x="30" y="0" Halignment="AlignLeft" Valignment="AlignTop" frame="false" keep_visual_rotation="true" text_width="-1" uuid="{c55d344f-fc41-476b-9491-9f03bef01cd2}" text_from="ElementInfo" font="Sans Serif,9,-1,5,50,0,0,0,0,0,Condensed">
+                        <text>DG.BESS</text>
+                        <info_name>label</info_name>
+                    </dynamic_elmt_text>
+                </dynamic_texts>
+                <texts_groups />
+            </element>
+        </elements>
+        <conductors>
+            <conductor x="0" y="0" condsize="1" cable="" onetextperfolio="1" vertical-alignment="AlignLeft" horizrotatetext="0" bicolor="false" bus="" dash-size="2" numsize="7" horizontal-alignment="AlignTop" function="" conductor_color="" conductor_section="" text_color="#000000" color2="#000000" tension_protocol="" displaytext="1" formula="" vertirotatetext="270" freezeLabel="false" num="" type="multi" terminal1="1" terminal2="2">
+                <sequentialNumbers>
+                    <unit />
+                    <unitFolio />
+                    <ten />
+                    <tenFolio />
+                    <hundred />
+                    <hundredFolio />
+                </sequentialNumbers>
+            </conductor>
+            <conductor x="0" y="0" condsize="1" cable="" onetextperfolio="1" vertical-alignment="AlignLeft" horizrotatetext="0" bicolor="false" bus="" dash-size="2" numsize="7" horizontal-alignment="AlignTop" function="" conductor_color="" conductor_section="" text_color="#000000" color2="#000000" tension_protocol="" displaytext="1" formula="" vertirotatetext="270" freezeLabel="false" num="" type="multi" terminal1="5" terminal2="8">
+                <sequentialNumbers>
+                    <unit />
+                    <unitFolio />
+                    <ten />
+                    <tenFolio />
+                    <hundred />
+                    <hundredFolio />
+                </sequentialNumbers>
+            </conductor>
+            <conductor x="0" y="0" condsize="1" cable="" onetextperfolio="1" vertical-alignment="AlignLeft" horizrotatetext="0" bicolor="false" bus="" dash-size="2" numsize="7" horizontal-alignment="AlignTop" function="" conductor_color="" conductor_section="" text_color="#000000" color2="#000000" tension_protocol="" displaytext="1" formula="" vertirotatetext="270" freezeLabel="false" num="" type="multi" terminal1="4" terminal2="13">
+                <sequentialNumbers>
+                    <unit />
+                    <unitFolio />
+                    <ten />
+                    <tenFolio />
+                    <hundred />
+                    <hundredFolio />
+                </sequentialNumbers>
+            </conductor>
+            <conductor x="0" y="0" condsize="1" cable="" onetextperfolio="1" vertical-alignment="AlignLeft" horizrotatetext="0" bicolor="false" bus="" dash-size="2" numsize="7" horizontal-alignment="AlignTop" function="" conductor_color="" conductor_section="" text_color="#000000" color2="#000000" tension_protocol="" displaytext="1" formula="" vertirotatetext="270" freezeLabel="false" num="" type="multi" terminal1="7" terminal2="14">
+                <sequentialNumbers>
+                    <unit />
+                    <unitFolio />
+                    <ten />
+                    <tenFolio />
+                    <hundred />
+                    <hundredFolio />
+                </sequentialNumbers>
+            </conductor>
+            <conductor x="0" y="0" condsize="1" cable="" onetextperfolio="1" vertical-alignment="AlignLeft" horizrotatetext="0" bicolor="false" bus="" dash-size="2" numsize="7" horizontal-alignment="AlignTop" function="" conductor_color="" conductor_section="" text_color="#000000" color2="#000000" tension_protocol="" displaytext="1" formula="" vertirotatetext="270" freezeLabel="false" num="" type="multi" terminal1="11" terminal2="16">
+                <sequentialNumbers>
+                    <unit />
+                    <unitFolio />
+                    <ten />
+                    <tenFolio />
+                    <hundred />
+                    <hundredFolio />
+                </sequentialNumbers>
+            </conductor>
+        </conductors>
+    </diagram>
+    <collection>
+        <category name="import">
+            <category name="2e54968e74208b39">
+                <element name="qs.elmt">
+                    <definition version="0.100.0" type="element" link_type="master" width="40" height="120" hotspot_x="20" hotspot_y="60">
+                        <uuid uuid="{5d057cf7-aa0d-4e6d-82fd-b2d58905c0fb}" />
+                        <names>
+                            <name lang="ar">مفتاح عزل</name>
+                            <name lang="ca">trencar aïllador</name>
+                            <name lang="cs">Odpojovač</name>
+                            <name lang="de">Lasttrenner 1-polig</name>
+                            <name lang="en">break isolator</name>
+                            <name lang="es">Seccionador</name>
+                            <name lang="fr">Sectionneur</name>
+                            <name lang="it">Sezionatore 1P</name>
+                            <name lang="nl">Lastschakelaar</name>
+                            <name lang="pl">Odłącznik</name>
+                            <name lang="pt">Seccionador</name>
+                            <name lang="ru">Разъеденитель</name>
+                        </names>
+                        <kindInformations>
+                            <kindInformation name="type">protection</kindInformation>
+                        </kindInformations>
+                        <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+GS P04: uniform scale 2; source 11_singlepole/200_fuses_protective_gears/20_disconnecting_switches/sectionneur1.elmt. No IEC certification asserted.</informations>
+                        <description>
+                            <polygon x1="-10" y1="-20" x2="0" y2="20" x3="0" y3="40" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+                            <line x1="0" y1="-40" x2="0" y2="-20" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+                            <line x1="4" y1="-20" x2="-4" y2="-20" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+                            <terminal uuid="{0893b585-f622-4b91-8123-43d2b66bae28}" name="" x="0" y="-42" orientation="n" type="Generic" />
+                            <terminal uuid="{0a3bea67-3612-4d4e-8c3b-9208004f10fa}" name="" x="0" y="42" orientation="s" type="Generic" />
+                        </description>
+                    </definition>
+                </element>
+            </category>
+            <category name="a62de80963806ebf">
+                <element name="j4.elmt">
+                    <definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="30" hotspot_y="50">
+                        <uuid uuid="{f6ecca15-9795-4e05-9561-fa8afc77e24c}" />
+                        <names>
+                            <name lang="ca">Doble unió de conductors</name>
+                            <name lang="cs">Dvojnásobné spojení T</name>
+                            <name lang="de">Doppelabzweig von Leitern</name>
+                            <name lang="en">Double junction of conductors</name>
+                            <name lang="fr">Double liaison en T</name>
+                        </names>
+                        <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+GS P04: uniform scale 1; source 91_en_60617/en_60617_03/en_60617_03_02/en_60617_03_02_07.elmt. No IEC certification asserted.</informations>
+                        <description>
+                            <line x1="-20" y1="-20" x2="20" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+                            <line x1="0" y1="-40" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+                            <ellipse x="-2.5" y="-22.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false" />
+                            <terminal uuid="{ae0bfeb7-1246-416b-8a0f-f020272f270c}" name="" x="0" y="-40" orientation="n" type="Generic" />
+                            <terminal uuid="{c8161911-7b1b-44e2-a209-7219433a5330}" name="" x="0" y="0" orientation="s" type="Generic" />
+                            <terminal uuid="{8a011b1b-7c2d-422d-9679-2c6989b98ef5}" name="" x="20" y="-20" orientation="e" type="Generic" />
+                            <terminal uuid="{53f3e7ea-1b05-4745-8017-a8f31a54acaa}" name="" x="-20" y="-20" orientation="w" type="Generic" />
+                        </description>
+                    </definition>
+                </element>
+            </category>
+            <category name="f2dbb256fa0f9018">
+                <element name="cb.elmt">
+                    <definition version="0.100.0" type="element" link_type="master" width="40" height="120" hotspot_x="18" hotspot_y="60">
+                        <uuid uuid="{2c3fd78d-7ae8-469f-9778-7c55c2d8e06a}" />
+                        <names>
+                            <name lang="ar">قاطع</name>
+                            <name lang="ca">Interruptor</name>
+                            <name lang="cs">Vypínač</name>
+                            <name lang="de">Lastschalter 1P</name>
+                            <name lang="en">Circuit-breaker</name>
+                            <name lang="es">Disyuntor</name>
+                            <name lang="fr">Disjoncteur</name>
+                            <name lang="it">Sezionatore 1P</name>
+                            <name lang="nl">Lastscheider 1</name>
+                            <name lang="pl">Wyłącznik</name>
+                            <name lang="pt">Disjuntor</name>
+                            <name lang="ru">Выключатель</name>
+                        </names>
+                        <kindInformations>
+                            <kindInformation name="type">protection</kindInformation>
+                        </kindInformations>
+                        <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+GS P04: uniform scale 2; source 11_singlepole/200_fuses_protective_gears/11_circuit_breakers/disjoncteur1.elmt. No IEC certification asserted.
+P05: segno di apertura automatica da /Applications/QElectroTech.app/Contents/Resources/elements/10_electric/91_en_60617/en_60617_07/en_60617_07_01/en_60617_07_01_05.elmt</informations>
+                        <description>
+                            <polygon x1="0" y1="40" x2="0" y2="20" x3="-10" y3="-20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+                            <line x1="0" y1="-40" x2="0" y2="-20" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+                            <line x1="4" y1="-16" x2="-4" y2="-24" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+                            <line x1="4" y1="-24" x2="-4" y2="-16" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+                            <terminal uuid="{4e7a9570-9e8c-479a-a93e-885e5eb61fbd}" name="" x="0" y="-40" orientation="n" type="Generic" />
+                            <terminal uuid="{1a054f15-da3d-40a8-af9b-bf78bfe06a88}" name="" x="0" y="40" orientation="s" type="Generic" />
+                            <polygon x1="-11" y1="-3" x2="-4" y2="-5" x3="-2" y3="2" x4="-9" y4="4" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black" />
+                        </description>
+                    </definition>
+                </element>
+            </category>
+        </category>
+    </collection>
+</project>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition version="0.100.0" type="element" link_type="simple" width="78" height="39" hotspot_x="39" hotspot_y="17">
+  <uuid uuid="{be7592f4-96bf-42c4-9e73-4b72ee8b7569}" />
+  <names>
+    <name lang="ar">بطارية بخليتين</name>
+    <name lang="ca">Bateria 2 elements</name>
+    <name lang="cs">Baterie 2 články</name>
+    <name lang="de">Batterie 2 Elemente</name>
+    <name lang="el">Μπαταρία (2 στοιχεία σε σειρά)</name>
+    <name lang="en">Battery 2 elements</name>
+    <name lang="es">Bateria 2 elementos en serie</name>
+    <name lang="fr">Pile 2 éléments</name>
+    <name lang="it">Batteria (2 elementi, serie)</name>
+    <name lang="nl">batterij 2 elementen DC</name>
+    <name lang="nl_BE">Batterij 2 elementen DC</name>
+    <name lang="pl">Bateria ogniw elektrochemicznych</name>
+  </names>
+  <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+GS P04: uniform scale 1.3; source 10_allpole/392_generators_sources/30_batteries/pile_2_elements.elmt. No IEC certification asserted.</informations>
+  <description>
+    <line x1="26" y1="0" x2="13" y2="0" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="3.9" y1="0" x2="-6.5" y2="0" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="-13" y1="0" x2="-26" y2="0" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="-13" y1="-11.7" x2="-13" y2="11.7" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <rect x="-9.1" y="-7.8" width="3.9" height="15.6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false" />
+    <line x1="4.81" y1="-11.7" x2="4.81" y2="11.7" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <text text="-" x="18.2" y="7.371" rotation="0" font="Liberation Sans,7.8,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+    <text text="+" x="-24.7" y="7.371" rotation="0" font="Liberation Sans,7.8,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+    <rect x="8.71" y="-7.8" width="3.9" height="15.6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false" />
+    <terminal uuid="{777eed6f-b1a9-4abf-ad7f-8d0b60634226}" name="" x="26" y="0" orientation="e" type="Generic" />
+    <terminal uuid="{41381867-3ff6-4f79-8492-efe174914b3f}" name="" x="-26" y="0" orientation="w" type="Generic" />
+  </description>
+</definition>

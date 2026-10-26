@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition version="0.100.0" type="element" link_type="terminal" width="20" height="30" hotspot_x="10" hotspot_y="21">
+  <uuid uuid="{9af47fcf-afcb-4ffb-bbbe-079fd9fd4cb1}" />
+  <names>
+    <name lang="ar">طرف نهائي</name>
+    <name lang="ca">Born final</name>
+    <name lang="cs">Koncová svorka</name>
+    <name lang="de">Endklemme</name>
+    <name lang="en">Terminal block</name>
+    <name lang="es">Punto de unión</name>
+    <name lang="fr">Borne finale</name>
+    <name lang="hu">Sorkapocs</name>
+    <name lang="it">Terminale di fine</name>
+    <name lang="nl">Klem eind</name>
+    <name lang="pl">Zacisk</name>
+    <name lang="pt">Terminal de fim</name>
+    <name lang="ru">Клеммник</name>
+  </names>
+  <kindInformations>
+    <kindInformation name="type">generic</kindInformation>
+    <kindInformation name="function">generic</kindInformation>
+  </kindInformations>
+  <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+GS P04: uniform scale 1; source 10_allpole/130_terminals_terminal_strips/borne_finale.elmt. No IEC certification asserted.</informations>
+  <description>
+    <line x1="0" y1="-10" x2="0" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <ellipse x="-2.5" y="-2.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+    <terminal uuid="{60dfbe44-503d-42ca-b827-469296468240}" name="" x="0" y="-10" orientation="n" type="Generic" />
+  </description>
+</definition>

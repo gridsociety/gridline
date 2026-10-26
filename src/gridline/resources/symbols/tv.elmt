@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<definition version="0.100.0" type="element" link_type="simple" width="104" height="182" hotspot_x="73" hotspot_y="80">
+  <uuid uuid="{b05f76e4-a3b0-44e1-b475-3edccce669df}" />
+  <names>
+    <name lang="ca">Transformador de tensió</name>
+    <name lang="cs">Transformátor napětí</name>
+    <name lang="de">Spannungswandler</name>
+    <name lang="en">Voltage transformer</name>
+    <name lang="fr">Transformateur de tension</name>
+  </names>
+  <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+GS P04: uniform scale 1.3; source 91_en_60617/en_60617_06/en_60617_06_13/en_60617_06_13_01A.elmt. No IEC certification asserted.</informations>
+  <description>
+    <ellipse x="-26" y="-24.7" width="52" height="52" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="0" y1="-52" x2="0" y2="-26" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <ellipse x="-26" y="13" width="52" height="52" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <line x1="-0.169" y1="66.3" x2="-0.169" y2="92.3" end1="none" end2="none" length1="1.95" length2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+    <terminal uuid="{66f2bb55-6ed8-4ce5-8544-ae32f37f02c8}" name="" x="0" y="92.3" orientation="s" type="Generic" />
+    <terminal uuid="{2281702f-cc4b-4fe8-bfcd-f9d7aab85896}" name="" x="0" y="-52" orientation="n" type="Generic" />
+  </description>
+</definition>
