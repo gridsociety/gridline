@@ -9,13 +9,16 @@ aggiunge l'automazione BTicino nello stesso programma, preservando il primo.
 Usare un clone separato dal checkout dell'altro agente:
 
 ```sh
-git clone https://github.com/gridsociety/gridline.git gridline-bticino
+git clone git@github.com:gridsociety/gridline.git gridline-bticino
 cd gridline-bticino
 git switch -c feat/bticino
 ```
 
 Se il branch remoto esiste già, riprenderlo invece di ricrearlo. Leggere
 AGENTS.md, CONTRIBUTING.md, docs/architecture.md e VALIDATION.md prima di copiare.
+Il clone SSH usa le credenziali personali del contributore per il push.
+HTTPS resta disponibile per scaricare il repository pubblico; per contribuire
+via HTTPS configurare l'autenticazione Git del proprio account.
 
 ## Cartelle di competenza
 
